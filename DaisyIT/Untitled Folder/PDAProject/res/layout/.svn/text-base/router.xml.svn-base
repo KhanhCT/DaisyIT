@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="edu.sfsu.cs.orange.googlemap.Router" >
+
+    <AutoCompleteTextView 
+        android:id="@+id/from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="My Location"/>
+    <AutoCompleteTextView 
+        android:id="@+id/to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nhập địa điểm đến"        
+      />
+    <RadioGroup 
+        android:id="@+id/group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+	        <RadioButton 
+	        android:id="@+id/driving"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:checked="true"
+			android:text="Driving"/>
+	   		<RadioButton 
+	        android:id="@+id/walking"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Walking"/>
+	   		<RadioButton 
+	        android:id="@+id/bus"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="ByBus"/>
+    </RadioGroup>
+    <Button 
+        android:id="@+id/find"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Find"/>
+ 
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_banner"
+    android:background="@drawable/banner" >
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8.0dip"
+        android:background="@drawable/logo"
+        android:textColor="@color/white"
+        android:textSize="@dimen/test_size_3"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/mycartitems"
+        android:layout_width="60.0dip"
+        android:layout_height="35.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:layout_marginTop="12.0dip"
+        android:background="@drawable/cart_bg"
+        android:gravity="right"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/cartitemscount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mycartitems"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="right|center"
+        android:paddingRight="15.0dip"
+        android:text="@string/number_0"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_2"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/cseperator1"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginTop="51.0dip"
+        android:contentDescription="@string/description"
+        android:src="@color/FDFF9D" />
+
+</RelativeLayout>

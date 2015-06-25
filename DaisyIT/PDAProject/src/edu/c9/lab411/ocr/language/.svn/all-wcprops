@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language
+END
+LanguageCodeHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language/LanguageCodeHelper.java
+END
+TranslateAsyncTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language/TranslateAsyncTask.java
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language/.gitignore
+END
+TranslatorGoogle.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language/TranslatorGoogle.java
+END
+Translator.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language/Translator.java
+END
+TranslatorBing.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/69/trunk/PDAProject/src/edu/sfsu/cs/orange/ocr/language/TranslatorBing.java
+END

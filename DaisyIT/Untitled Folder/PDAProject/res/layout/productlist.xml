@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     >
+    <RelativeLayout  
+        android:id="@+id/header"     
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <include 
+        android:id="@+id/bannerinnerpages" 
+        android:layout_width="fill_parent" 
+        android:layout_height="50.0dip" 
+        layout="@layout/bannerinnerpage" />
+    	<include 
+        android:id="@id/search_ref" 
+        android:layout_width="fill_parent" 
+        android:layout_height="50.0dip" 
+        android:layout_below="@id/bannerinnerpages" 
+        layout="@layout/searchwithsavebutton" />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:background="@drawable/detail_bg" 
+        android:paddingLeft="5.0dip" 
+        android:paddingTop="5.0dip" 
+        android:paddingRight="5.0dip" 
+        android:paddingBottom="5.0dip" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:layout_below="@+id/header">
+    	<ListView 
+    	    android:id="@+id/productlist" 
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" 
+    	    android:drawSelectorOnTop="false" 
+    	    android:cacheColorHint="@color/white"
+    	    />
+        <TextView 
+            android:textSize="@dimen/text_size_1" 
+            android:textStyle="bold" 
+            android:textColor="@color/black" 
+            android:id="@+id/norecord" 
+            android:visibility="gone" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="@string/norecords" 
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+    
+    
+    
+
+</RelativeLayout>

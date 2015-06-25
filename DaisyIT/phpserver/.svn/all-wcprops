@@ -1,0 +1,67 @@
+END
+db_config.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/70/trunk/phpserver/db_config.php
+END
+get_all_products.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/70/trunk/phpserver/get_all_products.php
+END
+db_connect.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/70/trunk/phpserver/db_connect.php
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/70/trunk/phpserver/test.php
+END
+create_product.html
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/70/trunk/phpserver/create_product.html
+END
+style.css
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/70/trunk/phpserver/style.css
+END
+delete_product.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/70/trunk/phpserver/delete_product.php
+END
+update_product.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/70/trunk/phpserver/update_product.php
+END
+create_product.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/70/trunk/phpserver/create_product.php
+END
+get_product_details.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/70/trunk/phpserver/get_product_details.php
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/70/trunk/phpserver/login.html
+END

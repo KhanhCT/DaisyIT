@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/red"
+    tools:context="edu.c9.lab411.database.LoadDatabases" >
+
+    <Button
+        android:id="@+id/btn_load_sku"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_1"
+        android:background="@drawable/databasebtn_bg"
+        android:onClick="loadSkuItems"
+        android:text="@string/updateSku" />
+
+    <Button
+        android:id="@+id/btn_load_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_1"
+        android:background="@drawable/databasebtn_bg"
+        android:onClick="loadBarcode"
+        android:text="@string/updateBarcode" />
+
+</LinearLayout>

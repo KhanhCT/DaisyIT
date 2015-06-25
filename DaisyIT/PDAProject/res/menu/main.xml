@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/refresh" android:title="@string/refresh"></item>
+    <item android:id="@+id/clearcart" android:title="@string/clear_cart"></item>
+    <item android:id="@+id/clearwishlist" android:title="@string/clear_wishlist"></item>
+    <item android:id="@+id/signin" android:title="@string/signin"></item>
+    <item android:id="@+id/signout" android:title="@string/signout"></item>
+    
+
+</menu>

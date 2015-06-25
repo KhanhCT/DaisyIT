@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/detail_bg"
+    tools:context="edu.sfsu.cs.orange.database.Database" >
+    
+    <include android:id="@+id/bannerR"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_banner"
+        layout="@layout/banner"/>
+    
+	<Button 
+	    android:layout_marginTop="10.0dip"
+	    android:textColor="@color/white"
+	    android:textStyle="bold"
+        android:id="@+id/btn_database_new"
+        android:layout_width="@dimen/button_width_1"
+        android:layout_gravity="center"
+    	android:layout_height="70.0dip"
+    	android:background="@drawable/databasebutton"
+    	android:text="@string/database_new"
+    	/>   
+     <Button 
+        android:id="@+id/btn_database_update"
+        android:layout_marginTop="10.0dip"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_width="@dimen/button_width_1"
+        android:layout_gravity="center"
+    	android:layout_height="70.0dip"
+    	android:background="@drawable/databasebtn_bg"
+    	android:text="@string/database_update"
+    	/>
+      <Button 
+        android:id="@+id/btn_database_delete"
+        android:layout_marginTop="10.0dip"
+        android:layout_width="@dimen/button_width_1"
+        android:layout_gravity="center"
+    	android:layout_height="70.0dip"
+    	android:background="@drawable/databasebtn_bg"
+    	android:text="@string/database_delete"
+    	/>
+      
+</LinearLayout>

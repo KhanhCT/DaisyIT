@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="edu.c9.lab411.googlemap.Router" >
+       
+    <AutoCompleteTextView 
+        android:id="@+id/fromAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/my_location"/>
+    <AutoCompleteTextView 
+        android:id="@+id/toAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/addree_to"        
+      />
+    <RadioGroup 
+        android:id="@+id/groupVehicles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_bottom">
+	        <RadioButton 
+	        android:id="@+id/driving"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:checked="true"
+			android:text="@string/driving"/>
+	   		<RadioButton 
+	        android:id="@+id/walking"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/walking"/>
+	   		<RadioButton 
+	        android:id="@+id/bus"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/by_bus"/>
+    </RadioGroup>
+    <Button 
+        android:id="@+id/find"
+        android:layout_width="@dimen/button_width_1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/find"/>
+ 
+
+</LinearLayout>

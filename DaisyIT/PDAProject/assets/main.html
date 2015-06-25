@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=2.0" />
+<script type="text/javascript" src="lang.js"></script>
+<style type="text/css">
+body {  
+    padding:0;    
+    margin:3px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color:#333; 
+    font-size:1.5em;
+} 
+.title{
+	margin-left:5px;
+	text-align:center;
+	height:40px;
+	width:100%
+}
+.title h{
+	font-style: italic;
+	font-weight: bold;
+	font-size:20px;
+	color: #2c9688;
+}
+.inp{
+    width:200px;
+    height:30px;
+    border: 1px solid #7E99B3; 
+}
+.btn{
+    width:100px;
+    height:50px;
+}
+imgTouch{
+	padding-left:2px;
+}
+.StyleTableblur_QT 
+{
+   background-color:#E4EAF0; 
+   border: 1px solid #7E99B3; 
+   margin-bottom:3px;
+   border-collapse: collapse;
+   width:300px;
+}
+
+TABLE.CustomGridView
+{
+   border: 1px solid #666;
+   border-collapse: collapse;
+   width:100%;
+}
+TABLE.CustomGridView TH {
+    border: 1px solid #666;
+    border-top:0px;
+    background-color:#C0CFDD;
+    height:20px;
+}
+TABLE.CustomGridView TH a 
+{
+    color:#3166EB;
+    text-decoration:none;
+}
+TABLE.CustomGridView TH a:hover
+{
+    text-decoration:underline;
+}
+TABLE.CustomGridView TD {
+    border: 1px solid #666; 
+    font-size:0.75em;
+}
+</style>
+</head>
+<body>
+<div class="title">
+	<h>Read Barcode</h>	
+</div>
+<div style="margin-bottom:10px;">
+<input name="btnSubmit" type="button" id="btnSubmit" lang="Submit"
+onClick="SentData();" class="lang btn" /> 
+<input name="btnClear" type="button" id="btnClear" lang="Clear"
+onClick="ClearData();" class="lang btn" /> 
+<img id="imgTouch" src="Touch-ON.jpg" onClick="MenuSwitch(this);" valign="middle"  />
+<input name="hidTouch" type="hidden" id="hidTouch" /> 
+</div>
+<table class="StyleTableblur_QT">
+    <tr>
+        <td align="right"><span lang="PartNo" class="lang"></span>:</td>
+        <td><input type="text" id="txtPNO" name="txtPNO" 
+            onkeyup="insert(event);" oninput ="insert2();"
+            title="Part No" placeholder="Scan barcode here" autofocus 
+            tabindex="1" maxlength="100" class="inp"
+            onfocus="this.style.background='#FFFF63';" onblur="this.style.background='white';"  
+            /></td>
+    </tr>
+    <tr>
+        <td align="right"><span lang="Qty" class="lang"></span>:</td>
+        <td><input type="number" min="1" id="txtQty" name="txtQty" value="1"  
+                title="Part No" 
+                tabindex="2" maxlength="8" class="inp"
+                onfocus="this.style.background='#FFFF63';" onblur="this.style.background='white';"                
+                /></td>
+    </tr>
+</table>
+<div id="divGridView"></div>
+<div id="logs"></div>
+</body>
+<script>
+//1024 * 1024 = 1 MB
+var database = openDatabase("MyDatabase", "1.0", "HTML5 Web SQL Database", 1024*1024);
+var log = document.querySelector("#logs");
+
+if (database != null) {
+	database.transaction(function(tx) {
+      /*tx.executeSql("DROP TABLE DemoList", [],
+        function(tx) { logOK('DB Success'); },
+        logError);*/
+    tx.executeSql("CREATE TABLE IF NOT EXISTS DemoList (id INTEGER PRIMARY KEY, PNO TEXT, Qty INTEGER)", [],
+        function(tx) { 
+            logOK(getLangStr('DB_OK')); 
+            queryRecord();
+        },
+        logError);
+  });
+}
+
+function ClearData() { 
+    //if(!confirm('Do you want to clear all data?'))
+    //    return;
+
+    if (database != null) {
+    	database.transaction(function(tx) {
+        tx.executeSql("DELETE FROM DemoList ", [],
+            function(tx) { 
+                logOK(getLangStr('DB_Clear')); 
+                queryRecord();
+                ClearField();
+            },
+            logError);
+      });
+    }
+}
+function ClearField() {
+    document.getElementById('txtPNO').value = '';
+    document.getElementById('txtQty').value = '1';
+    document.getElementById('txtPNO').focus();
+}
+/*   send data to android   */
+function SentData() { 
+    var JSONString = '[';
+    JSONString = '';
+	database.transaction(function(tx) {
+        tx.executeSql("SELECT * FROM DemoList ORDER BY id DESC", [], function(tx, result) {
+          if(result.rows.length==0){
+            logOK(getLangStr('Submit_ERR'));
+            return;
+          }
+          for (var i = 0, item = null; i < result.rows.length; i++) {
+            item = result.rows.item(i);
+            //JSONString += '{"Qty":"'+item['Qty']+'","PNO":"'+item['PNO']+'"},';
+            JSONString += item['PNO']+','+item['Qty']+"\n";
+          }
+          //JSONString = JSONString.substr(0,JSONString.length-1) + ']';          
+          window.android_js.ProcData(JSONString);
+          logOK(getLangStr('Submit_OK'));
+        });
+      });
+}
+function MenuSwitch(imgObj) { 
+    var IsLock = '';
+    var hidTouch = document.getElementById('hidTouch');
+    IsLock = hidTouch.value;
+        
+    if(IsLock != 'Y')
+        IsLock="Y";
+    else
+        IsLock="N"; 
+        
+    hidTouch.value = IsLock;
+    imgObj.src = (IsLock=="Y")?"Touch-OFF.jpg":"Touch-ON.jpg";
+    window.android_js.MenuSwitch(IsLock);
+}
+
+function query() {
+	queryRecord();
+	logOK(getLangStr('Query_OK'));
+}
+function queryRecord() {
+    var Gridview = document.querySelector("#divGridView");
+    var TableHTML = '';  
+	database.transaction(function(tx) {
+    tx.executeSql("SELECT * FROM DemoList ORDER BY id DESC", [], function(tx, result) {
+      TableHTML = '<table class="CustomGridView"><tr><th>'+getLangStr('Item')+'</th><th>'
+                      +getLangStr('PartNo')+'</th><th>'+getLangStr('Qty')+'</th><th>'
+                      +getLangStr('Option')+'</th></tr>';
+      for (var i = 0, item = null; i < result.rows.length; i++) {
+        item = result.rows.item(i);
+        
+        if(i == 0)
+            TableHTML += '<tr style="background:#FFFF63;">';
+        else
+            TableHTML += '<tr>';
+            
+        TableHTML += '<td>'+ (i+1) + '</td><td>'+ item['PNO'] + '</td><td>'+item['Qty']
+            +'</td><td align="center" onClick="delete1('+item['id']+')"><img id="_btnDelete" src="./del.gif" width="30" /></td></tr>';
+      }
+      TableHTML += '</table>';
+      Gridview.innerHTML = TableHTML;
+    });
+  });
+}
+function insert(e) {
+    var key = window.event ? e.keyCode : e.which;
+    if (key != 13 && key != 9 && key != 10)
+        return;  
+    var PNO = document.getElementById('txtPNO').value;
+    var Qty = document.getElementById('txtQty').value;
+    //PNO=PNO.replace('*','');
+    /*if(PNO.length < 14)
+        return;
+    else*/
+    
+	if(PNO == ''){
+		//window.alert('Part No is required!');
+		return;
+	}
+    if(Qty == ''){
+		window.alert(getLangStr('Qty_Req'));
+		return;
+	}
+    
+    ClearField();
+    window.android_js.PlayAudio("");
+    insertRecord(PNO, Qty);
+    logOK(getLangStr('Insert_OK'));
+} 
+function insert2() {     
+    var PNO = document.getElementById('txtPNO').value;
+    var Qty = document.getElementById('txtQty').value;
+    var Pass=false;
+    var key='';
+    //var testStr='';
+    
+    for(i=PNO.length-1;i>=0;i--){
+        key = PNO[i].charCodeAt();
+        if(key==8 || key==9 || key==10){
+            Pass = true;
+            break;
+        }
+        //testStr+=PNO[i]+'-'+PNO[i].charCodeAt()+' '; 
+    }
+    //alert(testStr);
+    if(!Pass)
+        return;
+        
+	if(PNO == ''){
+		//window.alert('Part No is required!');
+		return;
+	}
+    if(Qty == ''){
+		window.alert(getLangStr('Qty_Req'));
+		return;
+	}
+    
+    ClearField();
+    window.android_js.PlayAudio("");
+    insertRecord(PNO, Qty);
+    logOK(getLangStr('Insert_OK'));
+} 
+function insertRecord(PNO, Qty) {
+  database.transaction(function(tx) {
+    tx.executeSql("INSERT INTO DemoList (PNO,Qty) VALUES (?,?)"
+    , [PNO, Qty],
+        function(tx, result) {
+          queryRecord();
+          //ClearField();
+        }, 
+        logError);
+  });  
+} 
+function delete1(id) {
+	deleteRecord(id);	
+	logOK(getLangStr('Delete_OK'));
+    document.getElementById('txtPNO').focus();
+}
+function deleteRecord(id) {
+  database.transaction(function(tx) {
+    tx.executeSql("DELETE FROM DemoList WHERE id=?", [id],
+        function(tx, result) { queryRecord() }, 
+        logError);
+  });
+}
+
+function logOK(msg) {
+  log.innerHTML = '<p style="color: #0000FF">' + msg + '</p>';
+}
+
+function logError(tx, error) {
+  log.innerHTML = '<p style="color: #CC0000">' + error.message + '</p>';
+}
+
+UpdateLanguage();
+</script>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/linearlayoutcommon"
+    android:orientation="horizontal" >
+
+    <TableLayout
+        android:id="@+id/tb1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tablelayoutcommon"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:id="@+id/tablerow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tablelayoutcommon" >
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/sold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon2"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/reserver_"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <TextView
+                android:id="@+id/tv6"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/stock_"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <TextView
+                android:id="@+id/tv7"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/liq_"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tablerow1"
+            android:layout_width="fill_parent"
+            android:layout_height="100.0dip"
+            android:background="@drawable/tablelayoutcommon" >
+
+            <TextView
+                android:id="@+id/sold"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/sold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <TextView
+                android:id="@+id/reserver"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon2"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/reserver"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <TextView
+                android:id="@+id/stock"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/stock"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <TextView
+                android:id="@+id/liqu"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:background="@drawable/tvcommon1"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/liq"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

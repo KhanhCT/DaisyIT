@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.c9.lab411.ocr"
+    android:installLocation="preferExternal"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="22" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <permission
+        android:name="com.example.busmap.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="com.example.busmap.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <!-- <uses-feature android:name="android.hardware.camera.autofocus" /> -->
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.screen.landscape" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".Interface"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CaptureActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="user" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PreferencesActivity" />
+        <activity
+            android:name="edu.c9.lab411.googlemap.GoogleMap"
+            android:label="@string/title_activity_google_map" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCraNqFBk4RL21wZ0Uv3THtppcdNu_xD1s" />
+
+        <activity
+            android:name="edu.c9.lab411.googlemap.Router"
+            android:label="@string/title_activity_router" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.barcode.BarcodeDemoActivity"
+            android:label="@string/title_activity_bar_code" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.printerTSCAlpla3R.ConfigPrinter"
+            android:label="@string/title_activity_config_printer" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.account.Registy"
+            android:label="@string/title_activity_resgisty" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.account.Login"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.goods.GoodsReceipt"
+            android:label="@string/title_activity_goods_receipt" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.goodsissue.GoodsIssue"
+            android:label="@string/title_activity_goods_issue" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.order.Order"
+            android:label="@string/title_activity_order" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.controller.Puckshop"
+            android:label="@string/title_activity_puckshop" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.controller.Bussiness"
+            android:label="@string/title_activity_business" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.rate.Rate"
+            android:label="@string/title_activity_rate" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.goodreceipt.GoodsReceipt"
+            android:label="@string/title_activity_goods_reseipt" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.offerCustomer.OfferCustomer"
+            android:label="@string/title_activity_offer_customer" >
+        </activity>
+        <activity
+            android:name="edu.c9.lab411.database.LoadDatabases"
+            android:label="@string/title_activity_load_databases" >
+        </activity>
+    </application>
+
+</manifest>
