@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2018 1:44:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.daisyit.entity.Deptlist" table="DEPTLIST" catalog="NSRP_CATER" optimistic-lock="version">
+        <id name="deptId" type="string">
+            <column name="DEPT_ID" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="deptName" type="string">
+            <column name="DEPT_NAME" length="120" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
