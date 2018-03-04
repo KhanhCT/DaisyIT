@@ -10,9 +10,11 @@ com/daisyit/entity/AllcodeId.class
 com/daisyit/db/abstraction/UserDAO.class
 com/daisyit/entity/Catering.class
 com/daisyit/utils/Log.class
+com/daisyit/db/hibernate/HibernateUserDAO.class
 com/daisyit/entity/Mercprop.class
 com/daisyit/db/hibernate/HibernateStaffDAO.class
 com/daisyit/entity/Users.class
+com/daisyit/gpio/PortWriter.class
 com/daisyit/utils/APIException.class
 com/daisyit/db/abstraction/StaffDAO.class
 com/daisyit/db/abstraction/DAOException.class

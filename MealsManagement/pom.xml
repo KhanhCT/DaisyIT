@@ -106,6 +106,31 @@
 	    <version>1.0.1.Final</version>
 	</dependency>
 	<!-- End Logging -->
+	
+	<!-- Java Face -->
+	<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
+	<dependency>
+	    <groupId>com.sun.faces</groupId>
+	    <artifactId>jsf-api</artifactId>
+	    <version>2.2.12</version>
+	</dependency>
+	<!-- End JSF -->
+	
+	<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+	<dependency>
+	    <groupId>org.primefaces</groupId>
+	    <artifactId>primefaces</artifactId>
+	    <version>6.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.primefaces.extensions/primefaces-extensions -->
+	<dependency>
+	    <groupId>org.primefaces.extensions</groupId>
+	    <artifactId>primefaces-extensions</artifactId>
+	    <version>6.2</version>
+	</dependency>
+		
+
   </dependencies>
 
 </project>

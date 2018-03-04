@@ -2,6 +2,7 @@
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/Appvar.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/db/abstraction/UserDAO.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/db/abstraction/DeptListDAO.java
+/home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/db/hibernate/HibernateUserDAO.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/db/abstraction/StaffDAO.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/CateringId.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/Deptlist.java
@@ -16,6 +17,7 @@
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/AllcodeId.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/Sysvar.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/db/hibernate/HibernateStaffDAO.java
+/home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/gpio/PortWriter.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/Mercprop.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/Users.java
 /home/khanhct/workspace/DaisyIT/MealsManagement/src/main/java/com/daisyit/entity/Catering.java

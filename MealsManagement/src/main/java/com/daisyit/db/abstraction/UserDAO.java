@@ -10,10 +10,10 @@ public interface UserDAO {
 	
 	List<Users> getAllUsers() throws DAOException;
 
-	Users deleteCatering(Users user) throws DAOException;
+	Users deleteUser(Users user) throws DAOException;
 	
-	Users addCatering(Users user) throws DAOException;
+	Users addUser(Users user) throws DAOException;
 	
-	void addMultiUsers(List<Users> Users)  throws DAOException;
+	List<Users> addMultiUsers(List<Users> users)  throws DAOException;
 
 }
