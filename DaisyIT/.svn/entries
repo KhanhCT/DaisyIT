@@ -1,60 +1,0 @@
-10
-
-dir
-70
-https://saletool-pda-daisy-project.googlecode.com/svn/trunk
-https://saletool-pda-daisy-project.googlecode.com/svn
-
-
-
-2015-01-03T13:57:59.331504Z
-69
-trongkhanh91.hust@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-incomplete
-bb021283-01ed-5a53-c48f-f990231348d0
-
-
-
-
-
-
-
-
-()
-
-tess-two-master
-dir
-
-phpserver
-dir
-
-tessdata
-dir
-
-PDAProject
-dir
-
-
-
-replace
-
-svn-commit.tmp
-file
-0
-
-
-add
-
