@@ -1,5 +1,4 @@
-package com.daisyit.entity;
-// Generated Mar 4, 2018 1:44:52 PM by Hibernate Tools 4.3.1
+package com.daisyit.entity;// Generated Mar 6, 2018 1:19:04 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,7 +19,11 @@ import javax.persistence.TemporalType;
 public class Staff  implements java.io.Serializable {
 
 
-     private String staffId;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String staffId;
      private String staffCode;
      private String type;
      private String grpId;
@@ -49,7 +52,7 @@ public class Staff  implements java.io.Serializable {
      private Date issDate;
      private char sex;
      private Date birthday;
-     private short userId;
+     private Short userId;
      private String cardId;
      private String zoneSymb;
      private String mealType;
@@ -62,51 +65,22 @@ public class Staff  implements java.io.Serializable {
      private Date openDate;
      private Date modiDate;
      private Date lastDate;
-     private byte status;
+     private boolean status;
 
     public Staff() {
     }
 
 	
-    public Staff(String staffId, String staffCode, String type, String grpId, String nodeId, String name, String title, String address, String address2, String country, String plcId, String phone, String fax, String mobi, String mobi2, String email, String skype, String facebook, String bankAcc, String accHolder, String bank, String bankAddr, String deptId, String stkId, String depCode, String personId, char sex, short userId, String cardId, String zoneSymb, String mealType, String contrNum, String regNum, String contrBr, String remark, byte status) {
+    public Staff(String staffId, String name, String deptId, String personId, char sex, String cardId, boolean status) {
         this.staffId = staffId;
-        this.staffCode = staffCode;
-        this.type = type;
-        this.grpId = grpId;
-        this.nodeId = nodeId;
         this.name = name;
-        this.title = title;
-        this.address = address;
-        this.address2 = address2;
-        this.country = country;
-        this.plcId = plcId;
-        this.phone = phone;
-        this.fax = fax;
-        this.mobi = mobi;
-        this.mobi2 = mobi2;
-        this.email = email;
-        this.skype = skype;
-        this.facebook = facebook;
-        this.bankAcc = bankAcc;
-        this.accHolder = accHolder;
-        this.bank = bank;
-        this.bankAddr = bankAddr;
         this.deptId = deptId;
-        this.stkId = stkId;
-        this.depCode = depCode;
         this.personId = personId;
         this.sex = sex;
-        this.userId = userId;
         this.cardId = cardId;
-        this.zoneSymb = zoneSymb;
-        this.mealType = mealType;
-        this.contrNum = contrNum;
-        this.regNum = regNum;
-        this.contrBr = contrBr;
-        this.remark = remark;
         this.status = status;
     }
-    public Staff(String staffId, String staffCode, String type, String grpId, String nodeId, String name, String title, String address, String address2, String country, String plcId, String phone, String fax, String mobi, String mobi2, String email, String skype, String facebook, String bankAcc, String accHolder, String bank, String bankAddr, String deptId, String stkId, String depCode, String personId, Date issDate, char sex, Date birthday, short userId, String cardId, String zoneSymb, String mealType, String contrNum, Date contrDt, String regNum, String contrBr, Date dueDate, String remark, Date openDate, Date modiDate, Date lastDate, byte status) {
+    public Staff(String staffId, String staffCode, String type, String grpId, String nodeId, String name, String title, String address, String address2, String country, String plcId, String phone, String fax, String mobi, String mobi2, String email, String skype, String facebook, String bankAcc, String accHolder, String bank, String bankAddr, String deptId, String stkId, String depCode, String personId, Date issDate, char sex, Date birthday, Short userId, String cardId, String zoneSymb, String mealType, String contrNum, Date contrDt, String regNum, String contrBr, Date dueDate, String remark, Date openDate, Date modiDate, Date lastDate, boolean status) {
        this.staffId = staffId;
        this.staffCode = staffCode;
        this.type = type;
@@ -165,7 +139,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="STAFF_CODE", nullable=false, length=20)
+    @Column(name="STAFF_CODE", length=20)
     public String getStaffCode() {
         return this.staffCode;
     }
@@ -175,7 +149,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="TYPE", nullable=false, length=2)
+    @Column(name="TYPE", length=2)
     public String getType() {
         return this.type;
     }
@@ -185,7 +159,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="GRP_ID", nullable=false, length=4)
+    @Column(name="GRP_ID", length=4)
     public String getGrpId() {
         return this.grpId;
     }
@@ -195,7 +169,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="NODE_ID", nullable=false, length=3)
+    @Column(name="NODE_ID", length=3)
     public String getNodeId() {
         return this.nodeId;
     }
@@ -215,7 +189,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="TITLE", nullable=false, length=2)
+    @Column(name="TITLE", length=2)
     public String getTitle() {
         return this.title;
     }
@@ -225,7 +199,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="ADDRESS", nullable=false, length=120)
+    @Column(name="ADDRESS", length=120)
     public String getAddress() {
         return this.address;
     }
@@ -235,7 +209,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="ADDRESS2", nullable=false, length=120)
+    @Column(name="ADDRESS2", length=120)
     public String getAddress2() {
         return this.address2;
     }
@@ -245,7 +219,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="COUNTRY", nullable=false, length=2)
+    @Column(name="COUNTRY", length=2)
     public String getCountry() {
         return this.country;
     }
@@ -255,7 +229,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="PLC_ID", nullable=false, length=9)
+    @Column(name="PLC_ID", length=9)
     public String getPlcId() {
         return this.plcId;
     }
@@ -265,7 +239,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="PHONE", nullable=false, length=50)
+    @Column(name="PHONE", length=50)
     public String getPhone() {
         return this.phone;
     }
@@ -275,7 +249,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="FAX", nullable=false, length=24)
+    @Column(name="FAX", length=24)
     public String getFax() {
         return this.fax;
     }
@@ -285,7 +259,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="MOBI", nullable=false, length=24)
+    @Column(name="MOBI", length=24)
     public String getMobi() {
         return this.mobi;
     }
@@ -295,7 +269,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="MOBI2", nullable=false, length=24)
+    @Column(name="MOBI2", length=24)
     public String getMobi2() {
         return this.mobi2;
     }
@@ -305,7 +279,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="EMAIL", nullable=false, length=50)
+    @Column(name="EMAIL", length=50)
     public String getEmail() {
         return this.email;
     }
@@ -315,7 +289,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="SKYPE", nullable=false, length=60)
+    @Column(name="SKYPE", length=60)
     public String getSkype() {
         return this.skype;
     }
@@ -325,7 +299,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="FACEBOOK", nullable=false, length=60)
+    @Column(name="FACEBOOK", length=60)
     public String getFacebook() {
         return this.facebook;
     }
@@ -335,7 +309,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="BANK_ACC", nullable=false, length=50)
+    @Column(name="BANK_ACC", length=50)
     public String getBankAcc() {
         return this.bankAcc;
     }
@@ -345,7 +319,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="ACC_HOLDER", nullable=false, length=120)
+    @Column(name="ACC_HOLDER", length=120)
     public String getAccHolder() {
         return this.accHolder;
     }
@@ -355,7 +329,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="BANK", nullable=false, length=120)
+    @Column(name="BANK", length=120)
     public String getBank() {
         return this.bank;
     }
@@ -365,7 +339,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="BANK_ADDR", nullable=false, length=120)
+    @Column(name="BANK_ADDR", length=120)
     public String getBankAddr() {
         return this.bankAddr;
     }
@@ -385,7 +359,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="STK_ID", nullable=false, length=12)
+    @Column(name="STK_ID", length=12)
     public String getStkId() {
         return this.stkId;
     }
@@ -395,7 +369,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="DEP_CODE", nullable=false, length=2)
+    @Column(name="DEP_CODE", length=2)
     public String getDepCode() {
         return this.depCode;
     }
@@ -445,12 +419,12 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="USER_ID", nullable=false, precision=3, scale=0)
-    public short getUserId() {
+    @Column(name="USER_ID", precision=3, scale=0)
+    public Short getUserId() {
         return this.userId;
     }
     
-    public void setUserId(short userId) {
+    public void setUserId(Short userId) {
         this.userId = userId;
     }
 
@@ -465,7 +439,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="ZONE_SYMB", nullable=false, length=4)
+    @Column(name="ZONE_SYMB", length=4)
     public String getZoneSymb() {
         return this.zoneSymb;
     }
@@ -475,7 +449,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="MEAL_TYPE", nullable=false, length=2)
+    @Column(name="MEAL_TYPE", length=2)
     public String getMealType() {
         return this.mealType;
     }
@@ -485,7 +459,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="CONTR_NUM", nullable=false, length=25)
+    @Column(name="CONTR_NUM", length=25)
     public String getContrNum() {
         return this.contrNum;
     }
@@ -505,7 +479,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="REG_NUM", nullable=false, length=25)
+    @Column(name="REG_NUM", length=25)
     public String getRegNum() {
         return this.regNum;
     }
@@ -515,7 +489,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="CONTR_BR", nullable=false, length=120)
+    @Column(name="CONTR_BR", length=120)
     public String getContrBr() {
         return this.contrBr;
     }
@@ -535,7 +509,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="REMARK", nullable=false, length=120)
+    @Column(name="REMARK", length=120)
     public String getRemark() {
         return this.remark;
     }
@@ -576,11 +550,11 @@ public class Staff  implements java.io.Serializable {
 
     
     @Column(name="STATUS", nullable=false)
-    public byte getStatus() {
+    public boolean isStatus() {
         return this.status;
     }
     
-    public void setStatus(byte status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

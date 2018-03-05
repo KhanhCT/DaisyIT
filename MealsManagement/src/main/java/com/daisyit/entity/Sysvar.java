@@ -17,7 +17,11 @@ import javax.persistence.Table;
 public class Sysvar  implements java.io.Serializable {
 
 
-     private String name;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String name;
      private char type;
      private String value;
      private String descript;

@@ -8,6 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.show_sql">true</property>
+    
     		<!-- Mapping resources -->
     <mapping resource="com/daisyit/db/Appvar.hbm.xml"/>
     <mapping resource="com/daisyit/db/Stations.hbm.xml"/>
@@ -17,6 +18,8 @@
     <mapping resource="com/daisyit/db/Catering.hbm.xml"/>
     <mapping resource="com/daisyit/db/Staff.hbm.xml"/>
     <mapping resource="com/daisyit/db/Deptlist.hbm.xml"/>
-    <mapping resource="com/daisyit/db/Users.hbm.xml"/>
+    <mapping resource="com/daisyit/db/User.hbm.xml"/>
+    <mapping resource="com/daisyit/db/Translation.hbm.xml"/>
+    
   </session-factory>
 </hibernate-configuration>

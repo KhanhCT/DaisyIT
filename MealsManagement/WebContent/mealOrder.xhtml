@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+    	<h:outputStylesheet library="css" name="table-style.css"  />
+<!--     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    </h:head>
+    <h:body style="padding: 5px 0px;">
+		<b:form inline="true" styleClass="info-content">
+		  <b:inputText value="99" label="Name" disabled="true" style="cursor: pointer;">
+		  </b:inputText>
+		  <b:inputText value="100" label="Department	" disabled="true" style="cursor: pointer;">
+		  </b:inputText>
+<!-- 		  <b:datepicker label="Date time"></b:datepicker> -->
+			<b:dateTimePicker label="Date time" 
+			show-date="true" show-time="false" allow-input-toggle= "true"
+			format="DD/MM/YYYY"></b:dateTimePicker>
+		</b:form>
+    	<h:form styleClass="form-table">
+    		<b:dataTable value="#{order.orderList}" var="o"
+	   			styleClass="order-table"
+	   			headerClass="order-table-header"
+	   			rowClasses="order-table-odd-row,order-table-even-row">
+	   			<b:dataTableColumn>
+	   				<!-- column header -->
+	   				<f:facet name="header">Employee Code</f:facet>
+	   				<!-- row record -->
+	   				#{o.orderNo}
+	   			</b:dataTableColumn>
+	   			
+	   			<b:dataTableColumn>
+	   				<f:facet name="header">FullName</f:facet>
+	   				#{o.productName}
+	   			</b:dataTableColumn>
+	   		
+	   			
+	   			<b:dataTableColumn label="Meal Time">
+	   				<h:selectOneMenu value="2">
+					   	<f:selectItem itemValue="1" itemLabel="Lunch" />
+					   	<f:selectItem itemValue="2" itemLabel="Dinner" />
+					   	<f:selectItem itemValue="3" itemLabel="Supper,breakfast" />
+					</h:selectOneMenu>
+	   			</b:dataTableColumn>
+	   			<b:dataTableColumn>
+	   				<f:facet name="header">Location</f:facet>
+	   				#{o.qty}
+	   			</b:dataTableColumn>
+	   			<b:dataTableColumn label="Meal Type">
+	   				<h:selectOneMenu value="1">
+					   	<f:selectItem itemValue="1" itemLabel="Viet" />
+					   	<f:selectItem itemValue="2" itemLabel="Japan" />
+					   	<f:selectItem itemValue="3" itemLabel="Halah" />
+					</h:selectOneMenu>
+	   			</b:dataTableColumn>
+	   			<b:dataTableColumn>
+		   			<f:facet name="header">
+				         <h:selectBooleanCheckbox class="checkall"/>
+				    </f:facet>
+	   				 <h:selectBooleanCheckbox value="1" />
+	   			</b:dataTableColumn>
+	   		</b:dataTable>
+    	</h:form>
+    	<script>
+    	 $('.checkall').click(function() {
+    		 $(this).closest("table").find(':checkbox').prop('checked', $(this).prop('checked'));
+//     		 if($(this).is(':checked')){
+//     			 $(this).closest("table").find(':checkbox').attr('checked', true);
+//     		 } else {
+//     			 $(this).closest("table").find(':checkbox').attr('checked', false);
+//     		 }
+    	 })
+    	</script>
+    </h:body>
+</html>

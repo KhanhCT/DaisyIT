@@ -2,18 +2,20 @@ package com.daisyit.db.abstraction;
 
 import java.util.List;
 
-import com.daisyit.entity.Users;
+import com.daisyit.entity.User;
 import com.daisyit.db.abstraction.DAOException;
 
 public interface UserDAO {
-	Users getUsers(Integer id) throws DAOException;
+	User getUsers(Integer id) throws DAOException;
 	
-	List<Users> getAllUsers() throws DAOException;
+	List<User> getAllUsers() throws DAOException;
 
-	Users deleteUser(Users user) throws DAOException;
+	User deleteUser(User user) throws DAOException;
 	
-	Users addUser(Users user) throws DAOException;
+	User addUser(User user) throws DAOException;
 	
-	List<Users> addMultiUsers(List<Users> users)  throws DAOException;
+	List<User> addMultiUsers(List<User> users)  throws DAOException;
+	
+	Boolean isValidUser(String staffId);
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 4, 2018 1:44:54 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 6, 2018 1:19:04 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.daisyit.entity.Staff" table="STAFF" catalog="NSRP_CATER" optimistic-lock="version">
         <id name="staffId" type="string">
@@ -9,76 +9,76 @@
             <generator class="assigned" />
         </id>
         <property name="staffCode" type="string">
-            <column name="STAFF_CODE" length="20" not-null="true" />
+            <column name="STAFF_CODE" length="20" />
         </property>
         <property name="type" type="string">
-            <column name="TYPE" length="2" not-null="true" />
+            <column name="TYPE" length="2" />
         </property>
         <property name="grpId" type="string">
-            <column name="GRP_ID" length="4" not-null="true" />
+            <column name="GRP_ID" length="4" />
         </property>
         <property name="nodeId" type="string">
-            <column name="NODE_ID" length="3" not-null="true" />
+            <column name="NODE_ID" length="3" />
         </property>
         <property name="name" type="string">
             <column name="NAME" length="50" not-null="true" />
         </property>
         <property name="title" type="string">
-            <column name="TITLE" length="2" not-null="true" />
+            <column name="TITLE" length="2" />
         </property>
         <property name="address" type="string">
-            <column name="ADDRESS" length="120" not-null="true" />
+            <column name="ADDRESS" length="120" />
         </property>
         <property name="address2" type="string">
-            <column name="ADDRESS2" length="120" not-null="true" />
+            <column name="ADDRESS2" length="120" />
         </property>
         <property name="country" type="string">
-            <column name="COUNTRY" length="2" not-null="true" />
+            <column name="COUNTRY" length="2" />
         </property>
         <property name="plcId" type="string">
-            <column name="PLC_ID" length="9" not-null="true" />
+            <column name="PLC_ID" length="9" />
         </property>
         <property name="phone" type="string">
-            <column name="PHONE" length="50" not-null="true" />
+            <column name="PHONE" length="50" />
         </property>
         <property name="fax" type="string">
-            <column name="FAX" length="24" not-null="true" />
+            <column name="FAX" length="24" />
         </property>
         <property name="mobi" type="string">
-            <column name="MOBI" length="24" not-null="true" />
+            <column name="MOBI" length="24" />
         </property>
         <property name="mobi2" type="string">
-            <column name="MOBI2" length="24" not-null="true" />
+            <column name="MOBI2" length="24" />
         </property>
         <property name="email" type="string">
-            <column name="EMAIL" length="50" not-null="true" />
+            <column name="EMAIL" length="50" />
         </property>
         <property name="skype" type="string">
-            <column name="SKYPE" length="60" not-null="true" />
+            <column name="SKYPE" length="60" />
         </property>
         <property name="facebook" type="string">
-            <column name="FACEBOOK" length="60" not-null="true" />
+            <column name="FACEBOOK" length="60" />
         </property>
         <property name="bankAcc" type="string">
-            <column name="BANK_ACC" length="50" not-null="true" />
+            <column name="BANK_ACC" length="50" />
         </property>
         <property name="accHolder" type="string">
-            <column name="ACC_HOLDER" length="120" not-null="true" />
+            <column name="ACC_HOLDER" length="120" />
         </property>
         <property name="bank" type="string">
-            <column name="BANK" length="120" not-null="true" />
+            <column name="BANK" length="120" />
         </property>
         <property name="bankAddr" type="string">
-            <column name="BANK_ADDR" length="120" not-null="true" />
+            <column name="BANK_ADDR" length="120" />
         </property>
         <property name="deptId" type="string">
             <column name="DEPT_ID" length="4" not-null="true" />
         </property>
         <property name="stkId" type="string">
-            <column name="STK_ID" length="12" not-null="true" />
+            <column name="STK_ID" length="12" />
         </property>
         <property name="depCode" type="string">
-            <column name="DEP_CODE" length="2" not-null="true" />
+            <column name="DEP_CODE" length="2" />
         </property>
         <property name="personId" type="string">
             <column name="PERSON_ID" length="20" not-null="true" />
@@ -92,35 +92,35 @@
         <property name="birthday" type="timestamp">
             <column name="BIRTHDAY" length="19" />
         </property>
-        <property name="userId" type="short">
-            <column name="USER_ID" precision="3" scale="0" not-null="true" />
+        <property name="userId" type="java.lang.Short">
+            <column name="USER_ID" precision="3" scale="0" />
         </property>
         <property name="cardId" type="string">
             <column name="CARD_ID" length="12" not-null="true" />
         </property>
         <property name="zoneSymb" type="string">
-            <column name="ZONE_SYMB" length="4" not-null="true" />
+            <column name="ZONE_SYMB" length="4" />
         </property>
         <property name="mealType" type="string">
-            <column name="MEAL_TYPE" length="2" not-null="true" />
+            <column name="MEAL_TYPE" length="2" />
         </property>
         <property name="contrNum" type="string">
-            <column name="CONTR_NUM" length="25" not-null="true" />
+            <column name="CONTR_NUM" length="25" />
         </property>
         <property name="contrDt" type="timestamp">
             <column name="CONTR_DT" length="19" />
         </property>
         <property name="regNum" type="string">
-            <column name="REG_NUM" length="25" not-null="true" />
+            <column name="REG_NUM" length="25" />
         </property>
         <property name="contrBr" type="string">
-            <column name="CONTR_BR" length="120" not-null="true" />
+            <column name="CONTR_BR" length="120" />
         </property>
         <property name="dueDate" type="timestamp">
             <column name="DUE_DATE" length="19" />
         </property>
         <property name="remark" type="string">
-            <column name="REMARK" length="120" not-null="true" />
+            <column name="REMARK" length="120" />
         </property>
         <property name="openDate" type="timestamp">
             <column name="OPEN_DATE" length="19" />
@@ -131,7 +131,7 @@
         <property name="lastDate" type="timestamp">
             <column name="LAST_DATE" length="19" />
         </property>
-        <property name="status" type="byte">
+        <property name="status" type="boolean">
             <column name="STATUS" not-null="true" />
         </property>
     </class>
