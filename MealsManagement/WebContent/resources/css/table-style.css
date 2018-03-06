@@ -28,3 +28,9 @@
     display: flex;
     justify-content: center;
 }
+.text-title{
+    background-color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}

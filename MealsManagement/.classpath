@@ -20,6 +20,8 @@
 			<attribute name="owner.project.facets" value="jboss.m2"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/khanhct/eclipse-workspace/DaisyIT/libs/jsf-api-2.2.9.jar"/>
+	<classpathentry kind="lib" path="/home/khanhct/eclipse-workspace/DaisyIT/libs/jsf-impl-2.2.9.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>

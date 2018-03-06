@@ -10,14 +10,18 @@ public class HibetnateUtil {
 	private static SessionFactory getSessionFactory() {
 		if (sessionFactory == null) {
 			try {
-				String workingDir = System.getProperty("user.dir");
+				//String workingDir = System.getProperty("user.dir");
+				File currDir = new File(".");
+				String workingDir = currDir.getAbsolutePath();
+				workingDir = workingDir.substring(0, workingDir.length()-1);
 				File file = null;
 				System.out.print("woking dir" + workingDir);
 				if (workingDir.contains("\\")) {
 					file = new File(workingDir + "\\hibernate.cfg.xml");
 				}
 				if (workingDir.contains("/")) {
-					file = new File("/home/khanhct/workspace/DaisyIT/MealsManagement" + "/hibernate.cfg.xml");
+					System.err.println("11111111111111111" + workingDir);
+					file = new File("/home/khanhct/eclipse-workspace/DaisyIT/MealsManagement" + "/hibernate.cfg.xml");
 				}
 				sessionFactory = new Configuration().configure(file).buildSessionFactory();
 				System.err.println("Connect to database successfully");
