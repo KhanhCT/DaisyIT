@@ -4,6 +4,8 @@ import java.io.File;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.daisyit.controller.Common;
+
 //import vn.com.daisy.DAO.SysvarDAO;
 
 public class Log {
@@ -11,17 +13,27 @@ public class Log {
 
 	public Log(String className) {
 		String workingDir = null;
-		//SysvarDAO sysDAO = new SysvarDAO();
-		//workingDir = sysDAO.getValue(ConfigTag.LOGFILE_URL);
+		// SysvarDAO sysDAO = new SysvarDAO();
+		// workingDir = sysDAO.getValue(ConfigTag.LOGFILE_URL);
 		if (workingDir == null) {
 			workingDir = System.getProperty("user.dir");
-			File file = new File(workingDir + "/log4j.properties");
-			if (file.exists()) {
-				PropertyConfigurator.configure(workingDir + "/log4j.properties");
+			File file;
+			if (workingDir.contains("/")) {
+				file = new File(workingDir + "/log4j.properties");
+				if (file.exists()) {
+					PropertyConfigurator.configure(workingDir + "/log4j.properties");
+				} else {
+					Common.print("Log()", "Cannot find log4j.properties. Cannot write log file!!!");
+				}
 			} else {
-				// Common.print("Log()", "Cannot find log4j.properties. Cannot
-				// Write log file!!!");
+				file = new File(workingDir + "\\log4j.properties");
+				if (file.exists()) {
+					PropertyConfigurator.configure(workingDir + "\\log4j.properties");
+				} else {
+					Common.print("Log()", "Cannot find log4j.properties. Cannot write log file!!!");
+				}
 			}
+
 		}
 		logger = Logger.getLogger(className);
 	}

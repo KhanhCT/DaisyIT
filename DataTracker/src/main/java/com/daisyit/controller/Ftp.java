@@ -51,7 +51,7 @@ public class Ftp {
 				if (Common.DEBUG)
 					Common.print("Ftp()", "Username or password incorrect!!");
 				ftpClient.disconnect();
-				System.exit(0);
+				//System.exit(0);
 			}
 			
 

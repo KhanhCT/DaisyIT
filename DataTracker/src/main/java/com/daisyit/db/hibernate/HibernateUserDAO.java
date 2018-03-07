@@ -9,7 +9,6 @@ import org.hibernate.Transaction;
 
 import com.daisyit.db.abstraction.DAOException;
 import com.daisyit.db.abstraction.UserDAO;
-import com.daisyit.entity.Staff;
 import com.daisyit.entity.User;
 import com.daisyit.utils.Log;
 

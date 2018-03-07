@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 6, 2018 2:26:40 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 7, 2018 6:20:41 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.daisyit.entity.Catering" table="CATERING" catalog="NSRP_CATER" optimistic-lock="version">
         <composite-id name="id" class="com.daisyit.entity.CateringId">
@@ -11,8 +11,8 @@
             <key-property name="mealTtme" type="string">
                 <column name="MEAL_TTME" length="2" />
             </key-property>
-            <key-property name="caterDate" type="timestamp">
-                <column name="CATER_DATE" length="19" />
+            <key-property name="caterDate" type="date">
+                <column name="CATER_DATE" length="10" />
             </key-property>
         </composite-id>
         <property name="mealId" type="string">
@@ -39,8 +39,8 @@
         <property name="userId" type="string">
             <column name="USER_ID" length="20" />
         </property>
-        <property name="openDate" type="timestamp">
-            <column name="OPEN_DATE" length="19" />
+        <property name="openDate" type="date">
+            <column name="OPEN_DATE" length="10" />
         </property>
         <property name="modiDate" type="timestamp">
             <column name="MODI_DATE" length="19" />

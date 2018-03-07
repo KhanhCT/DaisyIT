@@ -109,11 +109,10 @@ public class HibernateStaffDAO implements StaffDAO  {
 		try {
 			trans = this.session.beginTransaction();
 			for (int i = 0; i < staffs.size(); i++) {
-				System.out.println("23333333333333333333333333333");
 				this.session.saveOrUpdate(staffs.get(i));
 				if (i % 20 == 0) {
-					//this.session.flush();
-					//this.session.clear();
+					this.session.flush();
+					this.session.clear();
 				}
 			}
 			trans.commit();
@@ -126,5 +125,4 @@ public class HibernateStaffDAO implements StaffDAO  {
 		}
 		return null;		
 	}
-
 }

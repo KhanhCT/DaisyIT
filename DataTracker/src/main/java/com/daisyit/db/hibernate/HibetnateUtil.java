@@ -20,7 +20,7 @@ public class HibetnateUtil {
 					file = new File(workingDir + "/hibernate.cfg.xml");
 				}
 				sessionFactory = new Configuration().configure(file).buildSessionFactory();
-				System.err.println("Connect to database successfully");
+				System.err.println("Connect to database successfully!");
 			} catch (Exception ex) {
 				// Make sure you log the exception, as it might be swallowed
 				System.err.println("sessionFactory error " + ex);
