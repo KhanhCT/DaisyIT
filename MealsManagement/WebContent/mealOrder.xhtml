@@ -9,11 +9,12 @@
 <h:head>
 	<title>BootsFaces: next-gen JSF Framework</title>
 	<!-- 	<meta name="author" content="KhanhCT"></meta> -->
-	<h:outputStylesheet library="css" name="table-style.css" />
+
 </h:head>
 <h:body style="padding-top: 60px">
 	<ui:composition template="/applayout/mainTemplate.xhtml">
 		<ui:define name="content">
+			<h:outputStylesheet library="css" name="table-style.css" />
 			<b:form inline="true" styleClass="info-content">
 				<b:container>
 					<b:row>
@@ -47,6 +48,19 @@
 				</b:container>
 			</b:form>
 			<b:form styleClass="form-table" inline="true">
+				<h:panelGrid columns="3" cellpadding="5">
+					<b:inputText label="Name" labelStyle="width:80px;" label-col-lg="5"
+						label-col-sm="5">
+					</b:inputText>
+					<b:inputText label="StaffId" labelStyle="width:80px;"
+						label-col-lg="5" label-col-sm="5">
+					</b:inputText>
+					<b:commandButton value="Add" look="primary" style="width:100%"
+						update="orderForm" action="#{orderController.addClickListener}" />
+				</h:panelGrid>
+				<b:commandButton value="Submit" look="primary" style="width:100%"
+					action="#{orderController.submitClickListener}">
+				</b:commandButton>
 				<b:dataTable value="#{orderController.orderList}" var="col"
 					styleClass="order-table" headerClass="order-table-header"
 					rowClasses="order-table-odd-row,order-table-even-row"
@@ -59,21 +73,12 @@
 					<b:dataTableColumn label="Meal Time" orderable="false" value="">
 						<h:selectOneMenu value="#{col.mealTime}">
 							<f:selectItems value="#{orderController.mealTimes}" />
-							<!-- 
-							<f:selectItem itemValue="1" itemLabel="Lunch" />
-							<f:selectItem itemValue="2" itemLabel="Dinner" />
-							<f:selectItem itemValue="3" itemLabel="Supper,breakfast" />
-						 -->
 						</h:selectOneMenu>
 					</b:dataTableColumn>
 					<b:dataTableColumn orderable="false" label="Location">
 						<h:selectOneMenu value="#{col.location}">
-							<f:selectItems value="#{orderController.localtions}" />
-							<!--  
-							<f:selectItem itemValue="1" itemLabel="Viet" />
-							<f:selectItem itemValue="2" itemLabel="Japan" />
-							<f:selectItem itemValue="3" itemLabel="Halah" />
-							-->
+							<f:selectItems value="#{orderController.localtions}">
+							</f:selectItems>
 						</h:selectOneMenu>
 					</b:dataTableColumn>
 					<b:dataTableColumn label="Meal Type" orderable="false">
@@ -94,37 +99,15 @@
 						<h:selectBooleanCheckbox value="#{col.status}" />
 					</b:dataTableColumn>
 				</b:dataTable>
-				<h:panelGrid columns="3" cellpadding="5">
-					<b:inputText label="Name" labelStyle="width:80px;" label-col-lg="5" label-col-sm="5">
-					</b:inputText>
-					<b:inputText label="StaffId" labelStyle="width:80px;" label-col-lg="5" label-col-sm="5">
-					</b:inputText>
-					<b:commandButton value="Add" look="primary" style="width:100%"
-						update="orderForm" action="#{orderController.addClickListener}" />
-				</h:panelGrid>
-				<br/>
-				<b:commandButton value="Submit" look="success" style="width:100%"
-					action="#{orderController.submitClickListener}" />
-					<!--  
-				<b:container fluid="true"
-					style="position: absolute;bottom: 65px;width: 100%;">
-					<b:row>
-						<b:column span="1" offset="5">
 
-						</b:column>
-						<b:column span="1">
-							<b:commandButton value="Cancel" look="danger" style="width:100%" />
-						</b:column>
-					</b:row>
-				</b:container>
-				-->
 			</b:form>
+			<script>
+		    	 $('.checkall').click(function() {
+		    		 $(this).closest("table").find(':checkbox').prop('checked', $(this).prop('checked'));
+		    	 })
+		   	</script>
 		</ui:define>
 	</ui:composition>
-	<script>
-    	 $('.checkall').click(function() {
-    		 $(this).closest("table").find(':checkbox').prop('checked', $(this).prop('checked'));
-    	 })
-   	</script>
+	
 </h:body>
 </html>

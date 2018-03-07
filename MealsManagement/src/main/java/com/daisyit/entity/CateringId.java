@@ -1,8 +1,8 @@
 package com.daisyit.entity;
-// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 6:20:40 PM by Hibernate Tools 4.3.1
 
 
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -13,11 +13,7 @@ import javax.persistence.Embeddable;
 public class CateringId  implements java.io.Serializable {
 
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String staffId;
+     private String staffId;
      private String mealTtme;
      private Date caterDate;
 
@@ -42,7 +38,7 @@ public class CateringId  implements java.io.Serializable {
     }
 
 
-    @Column(name="MEAL_TTME", nullable=false, length=2)
+    @Column(name="MEAL_TTME", nullable=false, length=10)
     public String getMealTtme() {
         return this.mealTtme;
     }
@@ -52,7 +48,7 @@ public class CateringId  implements java.io.Serializable {
     }
 
 
-    @Column(name="CATER_DATE", nullable=false, length=19)
+    @Column(name="CATER_DATE", nullable=false, length=10)
     public Date getCaterDate() {
         return this.caterDate;
     }

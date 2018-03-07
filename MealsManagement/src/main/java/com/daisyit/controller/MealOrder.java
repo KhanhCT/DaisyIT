@@ -1,6 +1,6 @@
 package com.daisyit.controller;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class MealOrder {
 	
@@ -8,7 +8,7 @@ public class MealOrder {
 	private String staffName;
 	private String mealTime;
 	private String mealType;
-	private Date cateringDat;
+	private String cateringDat;
 	private String location;
 	private Boolean status;
 	
@@ -18,7 +18,7 @@ public class MealOrder {
 		
 	}
 	
-	public MealOrder(String staffId, String staffName, String mealTime, String mealType, Date cateringDat,
+	public MealOrder(String staffId, String staffName, String mealTime, String mealType, String cateringDat,
 			String location, Boolean status) {
 		super();
 		this.staffId = staffId;
@@ -54,10 +54,10 @@ public class MealOrder {
 	public void setMealType(String mealType) {
 		this.mealType = mealType;
 	}
-	public Date getCateringDat() {
+	public String getCateringDat() {
 		return cateringDat;
 	}
-	public void setCateringDat(Date cateringDat) {
+	public void setCateringDat(String cateringDat) {
 		this.cateringDat = cateringDat;
 	}
 	public String getLocation() {

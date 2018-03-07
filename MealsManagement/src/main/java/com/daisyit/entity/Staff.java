@@ -1,5 +1,5 @@
 package com.daisyit.entity;
-// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 6:20:40 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,11 +20,7 @@ import javax.persistence.TemporalType;
 public class Staff  implements java.io.Serializable {
 
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String staffId;
+     private String staffId;
      private String staffCode;
      private String name;
      private String title;
@@ -117,7 +113,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="TITLE", length=2)
+    @Column(name="TITLE")
     public String getTitle() {
         return this.title;
     }
@@ -147,7 +143,7 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="COUNTRY", length=2)
+    @Column(name="COUNTRY", length=50)
     public String getCountry() {
         return this.country;
     }

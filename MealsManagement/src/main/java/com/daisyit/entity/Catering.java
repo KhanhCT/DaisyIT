@@ -1,8 +1,8 @@
 package com.daisyit.entity;
-// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 6:20:40 PM by Hibernate Tools 4.3.1
 
 
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -22,11 +22,7 @@ import javax.persistence.TemporalType;
 public class Catering  implements java.io.Serializable {
 
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private CateringId id;
+     private CateringId id;
      private String mealId;
      private String zoneSymb;
      private String shift;
@@ -69,7 +65,7 @@ public class Catering  implements java.io.Serializable {
     @AttributeOverrides( {
         @AttributeOverride(name="staffId", column=@Column(name="STAFF_ID", nullable=false, length=12) ), 
         @AttributeOverride(name="mealTtme", column=@Column(name="MEAL_TTME", nullable=false, length=2) ), 
-        @AttributeOverride(name="caterDate", column=@Column(name="CATER_DATE", nullable=false, length=19) ) } )
+        @AttributeOverride(name="caterDate", column=@Column(name="CATER_DATE", nullable=false, length=10) ) } )
     public CateringId getId() {
         return this.id;
     }
@@ -158,8 +154,8 @@ public class Catering  implements java.io.Serializable {
         this.userId = userId;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="OPEN_DATE", length=19)
+    @Temporal(TemporalType.DATE)
+    @Column(name="OPEN_DATE", length=10)
     public Date getOpenDate() {
         return this.openDate;
     }

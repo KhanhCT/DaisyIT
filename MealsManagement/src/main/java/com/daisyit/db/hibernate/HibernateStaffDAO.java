@@ -150,4 +150,24 @@ public class HibernateStaffDAO implements StaffDAO {
 		return staffs;
 	}
 
+	@Override
+	public String getStaffName(String staffId) throws DAOException {
+		Transaction trans = null;
+		String sqlQuery = "SELECT name FROM Staff WHERE staffId= :staffId";
+		String staffName = null;
+		try {
+			trans = this.session.beginTransaction();
+			Query query = this.session.createQuery(sqlQuery);
+			query.setString("staffId", staffId);
+			staffName = (String) query.uniqueResult();
+			trans.commit();
+		} catch (RuntimeException e) {
+			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
+			if (trans != null) {
+				trans.rollback();
+			}
+		}
+		return staffName;
+	}
+
 }

@@ -68,7 +68,7 @@ public class OrderController {
 
 	public void addClickListener() {
 		orderList.add(
-				new MealOrder("1111", "Chu Trong Khanh", "Lunch", "VietNam", Util.getCurrentDate(), "Ha Noi", false));
+				new MealOrder("1111", "Chu Trong Khanh", "Lunch", "VietNam", Util.getCurrentDate().toString(), "Ha Noi", false));
 	}
 
 	public void submitClickListener() {

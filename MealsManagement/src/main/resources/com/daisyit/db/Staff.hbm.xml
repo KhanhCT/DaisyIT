@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 7, 2018 6:20:41 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.daisyit.entity.Staff" table="STAFF" catalog="NSRP_CATER" optimistic-lock="version">
         <id name="staffId" type="string">
@@ -15,7 +15,7 @@
             <column name="NAME" length="50" not-null="true" />
         </property>
         <property name="title" type="string">
-            <column name="TITLE" length="2" />
+            <column name="TITLE" />
         </property>
         <property name="address" type="string">
             <column name="ADDRESS" length="120" />
@@ -24,7 +24,7 @@
             <column name="ADDRESS2" length="120" />
         </property>
         <property name="country" type="string">
-            <column name="COUNTRY" length="2" />
+            <column name="COUNTRY" length="50" />
         </property>
         <property name="phone" type="string">
             <column name="PHONE" length="50" />

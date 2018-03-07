@@ -8,6 +8,7 @@ import com.daisyit.db.abstraction.DAOException;
 public interface StaffDAO {
 
 	Staff getStaff(String staffId) throws DAOException;
+	String getStaffName(String staffId) throws DAOException;
 
 	List<Staff> getAllStaffs() throws DAOException;
 

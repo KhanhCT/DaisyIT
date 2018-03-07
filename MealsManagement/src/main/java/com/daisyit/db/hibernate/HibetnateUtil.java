@@ -19,7 +19,7 @@ public class HibetnateUtil {
 					file = new File(workingDir + "\\hibernate.cfg.xml");
 				}
 				if (workingDir.contains("/")) {
-					file = new File("/home/khanhct/eclipse-workspace/DaisyIT/MealsManagement" + "/hibernate.cfg.xml");
+					file = new File("/home/khanhct/workspace/DaisyIT/MealsManagement" + "/hibernate.cfg.xml");
 				}
 				sessionFactory = new Configuration().configure(file).buildSessionFactory();
 				System.err.println("Connect to database successfully");

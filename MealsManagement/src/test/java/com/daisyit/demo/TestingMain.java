@@ -67,7 +67,7 @@ public class TestingMain {
 		long t = date.getTime();
 		java.sql.Date sqlDate = new java.sql.Date(t);
 
-		//System.out.println(cDao.getAllCaterings("A", "AC", Util.getCurrentDate()).size());
+		System.out.println(cDao.getAllCaterings("AC", Util.getCurrentDate()).size());
 		HibetnateUtil.closeSession(sess);
 
 		// File currDir = new File(".");

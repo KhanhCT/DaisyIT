@@ -1,5 +1,5 @@
 package com.daisyit.entity;
-// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 6:20:40 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;

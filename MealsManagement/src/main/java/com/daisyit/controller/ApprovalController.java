@@ -13,6 +13,7 @@ import org.hibernate.Session;
 
 import com.daisyit.db.hibernate.HibernateCateringDAO;
 import com.daisyit.db.hibernate.HibernateDeptListDAO;
+import com.daisyit.db.hibernate.HibernateMealDAO;
 import com.daisyit.db.hibernate.HibernateStaffDAO;
 import com.daisyit.db.hibernate.HibetnateUtil;
 import com.daisyit.entity.Catering;
@@ -58,26 +59,40 @@ public class ApprovalController {
 		if (department != null && mealTime != null && cateringDate != null) {
 			String deptId = hDeptListDAO.getDeptListId(department);
 			HibernateCateringDAO hCateringDao = new HibernateCateringDAO();
+			HibernateMealDAO hMealDao = new HibernateMealDAO();
+			List<Catering> cateringList;
+			String mealType;
+			String staffName;
+			String localtion = "Ha Noi";
+
 			hCateringDao.setSession(session);
-			List<Catering> orderLitst;
-			
-			orderLitst = hCateringDao.getAllCaterings(mealTime, Util.getCurrentDate());
-			if(orderLitst !=null)
-			{
-				
+			hMealDao.setSession(session);
+
+			cateringList = hCateringDao.getAllCaterings(mealTime, Util.getCurrentDate());
+			if (cateringList != null) {
+				orderList.clear();
+				for (Catering c : cateringList) {
+					mealType = hMealDao.getMealName(c.getMealId());
+					staffName = hStaffDao.getStaffName(c.getId().getStaffId());
+					orderList.add(new MealOrder(c.getMealId(), staffName, c.getId().getMealTtme(), mealType,
+							c.getCaterTime(), localtion, false));
+					// orderList.add(new MealOrder(c.getId().getStaffId(), hStaffDao., deptId,
+					// mealType, cateringDat, location, status))
+				}
+
 			}
 			if (deptId != null) {
-				orderList.clear();
-//			//	staffs = hStaffDao.getAllStaffs(deptId);
-//				System.out.println(staffs.size());
-//				for (Staff staff : staffs) {
-//					MealOrder mealOrder = new MealOrder();
-//					mealOrder.setStaffId(staff.getStaffId());
-//					mealOrder.setStaffName(staff.getName());
-//					mealOrder.setLocation(staff.getCountry());
-//					mealOrder.setStatus(false);
-//					orderList.add(mealOrder);
-//				}
+
+				// // staffs = hStaffDao.getAllStaffs(deptId);
+				// System.out.println(staffs.size());
+				// for (Staff staff : staffs) {
+				// MealOrder mealOrder = new MealOrder();
+				// mealOrder.setStaffId(staff.getStaffId());
+				// mealOrder.setStaffName(staff.getName());
+				// mealOrder.setLocation(staff.getCountry());
+				// mealOrder.setStatus(false);
+				// orderList.add(mealOrder);
+				// }
 			}
 		}
 	}

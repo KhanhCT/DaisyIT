@@ -1,5 +1,5 @@
 package com.daisyit.entity;
-// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 6:20:40 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -17,11 +17,7 @@ import javax.persistence.Table;
 public class Deptlist  implements java.io.Serializable {
 
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String deptId;
+     private String deptId;
      private String deptName;
 
     public Deptlist() {
