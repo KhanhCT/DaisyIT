@@ -1,36 +1,36 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 5, 2018 8:55:00 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.daisyit.entity.Sysvar" table="SYSVAR" catalog="NSRP_CATER" optimistic-lock="version">
         <id name="name" type="string">
             <column name="NAME" length="15" />
             <generator class="assigned" />
         </id>
-        <property name="type" type="char">
-            <column name="TYPE" length="1" not-null="true" />
+        <property name="type" type="java.lang.Character">
+            <column name="TYPE" length="1" />
         </property>
         <property name="value" type="string">
             <column name="VALUE" length="120" not-null="true" />
         </property>
         <property name="descript" type="string">
-            <column name="DESCRIPT" length="120" not-null="true" />
+            <column name="DESCRIPT" length="120" />
         </property>
         <property name="inputmask" type="string">
-            <column name="INPUTMASK" length="12" not-null="true" />
+            <column name="INPUTMASK" length="12" />
         </property>
-        <property name="modify" type="byte">
-            <column name="MODIFY" not-null="true" />
+        <property name="modify" type="java.lang.Boolean">
+            <column name="MODIFY" />
         </property>
         <property name="invalid" type="string">
-            <column name="INVALID" length="12" not-null="true" />
+            <column name="INVALID" length="12" />
         </property>
-        <property name="depCode" type="char">
-            <column name="DEP_CODE" length="1" not-null="true" />
+        <property name="depCode" type="java.lang.Character">
+            <column name="DEP_CODE" length="1" />
         </property>
-        <property name="rsrId" type="int">
-            <column name="RSR_ID" not-null="true" />
+        <property name="rsrId" type="java.lang.Integer">
+            <column name="RSR_ID" />
         </property>
     </class>
 </hibernate-mapping>

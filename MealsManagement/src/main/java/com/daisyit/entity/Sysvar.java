@@ -1,5 +1,5 @@
 package com.daisyit.entity;
-// Generated Mar 4, 2018 1:44:52 PM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -17,24 +17,25 @@ import javax.persistence.Table;
 public class Sysvar  implements java.io.Serializable {
 
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String name;
-     private char type;
+     private String name;
+     private Character type;
      private String value;
      private String descript;
      private String inputmask;
-     private byte modify;
+     private Boolean modify;
      private String invalid;
-     private char depCode;
-     private int rsrId;
+     private Character depCode;
+     private Integer rsrId;
 
     public Sysvar() {
     }
 
-    public Sysvar(String name, char type, String value, String descript, String inputmask, byte modify, String invalid, char depCode, int rsrId) {
+	
+    public Sysvar(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
+    public Sysvar(String name, Character type, String value, String descript, String inputmask, Boolean modify, String invalid, Character depCode, Integer rsrId) {
        this.name = name;
        this.type = type;
        this.value = value;
@@ -59,12 +60,12 @@ public class Sysvar  implements java.io.Serializable {
     }
 
     
-    @Column(name="TYPE", nullable=false, length=1)
-    public char getType() {
+    @Column(name="TYPE", length=1)
+    public Character getType() {
         return this.type;
     }
     
-    public void setType(char type) {
+    public void setType(Character type) {
         this.type = type;
     }
 
@@ -79,7 +80,7 @@ public class Sysvar  implements java.io.Serializable {
     }
 
     
-    @Column(name="DESCRIPT", nullable=false, length=120)
+    @Column(name="DESCRIPT", length=120)
     public String getDescript() {
         return this.descript;
     }
@@ -89,7 +90,7 @@ public class Sysvar  implements java.io.Serializable {
     }
 
     
-    @Column(name="INPUTMASK", nullable=false, length=12)
+    @Column(name="INPUTMASK", length=12)
     public String getInputmask() {
         return this.inputmask;
     }
@@ -99,17 +100,17 @@ public class Sysvar  implements java.io.Serializable {
     }
 
     
-    @Column(name="MODIFY", nullable=false)
-    public byte getModify() {
+    @Column(name="MODIFY")
+    public Boolean getModify() {
         return this.modify;
     }
     
-    public void setModify(byte modify) {
+    public void setModify(Boolean modify) {
         this.modify = modify;
     }
 
     
-    @Column(name="INVALID", nullable=false, length=12)
+    @Column(name="INVALID", length=12)
     public String getInvalid() {
         return this.invalid;
     }
@@ -119,22 +120,22 @@ public class Sysvar  implements java.io.Serializable {
     }
 
     
-    @Column(name="DEP_CODE", nullable=false, length=1)
-    public char getDepCode() {
+    @Column(name="DEP_CODE", length=1)
+    public Character getDepCode() {
         return this.depCode;
     }
     
-    public void setDepCode(char depCode) {
+    public void setDepCode(Character depCode) {
         this.depCode = depCode;
     }
 
     
-    @Column(name="RSR_ID", nullable=false)
-    public int getRsrId() {
+    @Column(name="RSR_ID")
+    public Integer getRsrId() {
         return this.rsrId;
     }
     
-    public void setRsrId(int rsrId) {
+    public void setRsrId(Integer rsrId) {
         this.rsrId = rsrId;
     }
 

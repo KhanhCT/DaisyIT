@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 06, 2018 at 01:58 AM
+-- Generation Time: Mar 07, 2018 at 01:39 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -149,55 +149,54 @@ CREATE TABLE `MERCPROP` (
 CREATE TABLE `STAFF` (
   `STAFF_ID` char(12) COLLATE utf8_unicode_ci NOT NULL,
   `STAFF_CODE` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `TYPE` char(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `GRP_ID` char(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `NODE_ID` char(3) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `NAME` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `TITLE` char(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ADDRESS` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
-  `ADDRESS2` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
-  `COUNTRY` char(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `PLC_ID` char(9) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
+  `TITLE` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ADDRESS` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ADDRESS2` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `COUNTRY` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PHONE` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `FAX` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MOBI` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MOBI2` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `EMAIL` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SKYPE` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `FACEBOOK` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `BANK_ACC` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ACC_HOLDER` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
-  `BANK` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
-  `BANK_ADDR` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
+  `BANK` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DEPT_ID` char(4) COLLATE utf8_unicode_ci NOT NULL,
-  `STK_ID` char(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `DEP_CODE` char(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `PERSON_ID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `ISS_DATE` datetime(3) DEFAULT NULL,
   `SEX` char(1) COLLATE utf8_unicode_ci NOT NULL,
   `BIRTHDAY` datetime(3) DEFAULT NULL,
-  `USER_ID` decimal(3,0) DEFAULT NULL,
+  `USER_ID` int(11) DEFAULT NULL,
   `CARD_ID` char(12) COLLATE utf8_unicode_ci NOT NULL,
   `ZONE_SYMB` char(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `MEAL_TYPE` char(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CONTR_NUM` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CONTR_DT` datetime(3) DEFAULT NULL,
-  `REG_NUM` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CONTR_BR` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
-  `DUE_DATE` datetime(3) DEFAULT NULL,
-  `REMARK` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
-  `OPEN_DATE` datetime(3) DEFAULT NULL,
-  `MODI_DATE` datetime(3) DEFAULT NULL,
-  `LAST_DATE` datetime(3) DEFAULT NULL,
-  `STATUS` bit(4) NOT NULL
+  `STATUS` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `STAFF`
 --
 
-INSERT INTO `STAFF` (`STAFF_ID`, `STAFF_CODE`, `TYPE`, `GRP_ID`, `NODE_ID`, `NAME`, `TITLE`, `ADDRESS`, `ADDRESS2`, `COUNTRY`, `PLC_ID`, `PHONE`, `FAX`, `MOBI`, `MOBI2`, `EMAIL`, `SKYPE`, `FACEBOOK`, `BANK_ACC`, `ACC_HOLDER`, `BANK`, `BANK_ADDR`, `DEPT_ID`, `STK_ID`, `DEP_CODE`, `PERSON_ID`, `ISS_DATE`, `SEX`, `BIRTHDAY`, `USER_ID`, `CARD_ID`, `ZONE_SYMB`, `MEAL_TYPE`, `CONTR_NUM`, `CONTR_DT`, `REG_NUM`, `CONTR_BR`, `DUE_DATE`, `REMARK`, `OPEN_DATE`, `MODI_DATE`, `LAST_DATE`, `STATUS`) VALUES
-('1212', '21dds', 'ds', 'sad', 'da', 'adasd', 'da', 'sddsa', 'ddsad', 'ds', 'ds', 'ds', 'dsd', 'dss', 'sdd', 'dsd', 'sds', 'dsd', 'sd', 'ds', 'ds', 'ds', 'ds', 'ssd', 'ds', 'ds', '2018-03-21 00:00:00.000', '1', '2018-03-28 00:00:00.000', '12', '1213', 'ew', 'w', 'ew', '2018-03-01 00:00:00.000', 'ew', 'ewe', '2018-03-21 00:00:00.000', 'ewe', '2018-03-29 00:00:00.000', '2018-03-22 00:00:00.000', '2018-03-15 00:00:00.000', b'0000');
+INSERT INTO `STAFF` (`STAFF_ID`, `STAFF_CODE`, `NAME`, `TITLE`, `ADDRESS`, `ADDRESS2`, `COUNTRY`, `PHONE`, `FAX`, `EMAIL`, `SKYPE`, `FACEBOOK`, `BANK_ACC`, `BANK`, `DEPT_ID`, `SEX`, `BIRTHDAY`, `USER_ID`, `CARD_ID`, `ZONE_SYMB`, `MEAL_TYPE`, `STATUS`) VALUES
+('1000032', '1000032', 'Turki Al-Ajmi', 'Chief Executive Officer', '0', '0', 'Kuwait', '+84 (0) 902 264 988', NULL, 'turki.alajmi@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1000032', NULL, NULL, b'1'),
+('1000051', '1000051', 'Hiroshi Akiya', 'Coordinator', '0', '0', 'Japan', '+84 (0) 904 874 867', NULL, 'hiroshi.akiya@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1000051', NULL, NULL, b'1'),
+('1000160', '1000160', 'Mai Th? Xuân Liên', 'Leader', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 966 678 686', NULL, 'lien.mtx@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1000160', NULL, NULL, b'1'),
+('1000180', '1000180', 'Nguy?n Th? Qu?nh Hoa', 'Chief Accounting Officer', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 902 008 228', NULL, 'hoa.ntq@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1000180', NULL, NULL, b'1'),
+('1000210', '1000210', 'Hoàng Th? Y?n', 'Officer', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 986 364 459', NULL, 'yen.ht@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1000210', NULL, NULL, b'1'),
+('1001660', '1001660', 'Mông Hoài V?', 'Officer', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 168 268 8666', NULL, 'vu.mh@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1001660', NULL, NULL, b'1'),
+('1001670', '1001670', 'Lê V?n ?ông', 'Leader', '??k L?k', '??k L?k', 'VN', '+84 (0) 907 081 480', NULL, 'dong.lv@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1001670', NULL, NULL, b'1'),
+('1001680', '1001680', 'Nguy?n V?n Sinh', 'Officer', 'B?c Ninh', 'B?c Ninh', 'VN', '+84 (0) 915 389 929', NULL, 'sinh.nv@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1001680', NULL, NULL, b'1'),
+('1001690', '1001690', 'L??ng Nguy?t Chi', 'Officer', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 979 579 509', NULL, 'chi.ln@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1001690', NULL, NULL, b'1'),
+('1006911', '1006911', 'Shintaro Ishida', 'Deputy Chief Executive Officer', '0', '0', 'Japan', '+84 (0) 901 792 535', NULL, 'shintaro.ishida@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1006911', NULL, NULL, b'1'),
+('1006970', '1006970', 'Hoàng Th? Ánh Ph??ng', 'Leader', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 986 380 889', NULL, 'phuong.hta@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1006970', NULL, NULL, b'1'),
+('1011760', '1011760', 'Tr?n Ph??ng Loan', 'Staff', 'Thanh Hóa', 'Thanh Hóa', 'VN', '+84 (0) 941 109 1991', NULL, 'loan.tp@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1011760', NULL, NULL, b'1'),
+('1011793', '1011793', '?inh V?n Ng?c', 'Deputy Chief Executive Officer', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 905 988 666', NULL, 'ngoc.dv@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1011793', NULL, NULL, b'1'),
+('1012260', '1012260', 'Ngô Th? Th??ng', 'Leader', 'Thái Bình', 'Thái Bình', 'VN', '+84 (0) 946861288', NULL, 'thuong.nt@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1012260', NULL, NULL, b'1'),
+('1013820', '1013820', 'L?u Ph??ng Linh', 'Staff', 'Hà N?i', 'Hà N?i', 'VN', '(+84) 984610748', NULL, 'linh.lp@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1013820', NULL, NULL, b'1'),
+('1013960', '1013960', 'Cao Hô?ng Nam', 'Staff', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 1236292052', NULL, 'nam.ch@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1013960', NULL, NULL, b'1'),
+('1013990', '1013990', 'Lê Thi? Tâm', 'Staff', 'Hà N?i', 'Hà N?i', 'VN', '+84 (0) 979 208 508', NULL, 'tam.lt@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1013990', NULL, NULL, b'1'),
+('1014260', '1014260', 'Nguy?n Th? Thu Hoa', 'Leader', 'Hà N?i', 'Hà N?i', 'VN', '0129.747.9999', NULL, 'hoa.ntt@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1014260', NULL, NULL, b'1'),
+('1014280', '1014280', 'V? Tr?nh Minh H?i', 'Staff', 'Hà N?i', 'Hà N?i', 'VN', '01222727348 ', NULL, 'hai.vtm@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1014280', NULL, NULL, b'1'),
+('1014721', '1014721', 'Takeru Horiguchi', 'chief Business Officer', '0', '0', 'Japan', '81(0) 44 987 0023', NULL, 'takeru.horiguchi@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '1', NULL, NULL, '1014721', NULL, NULL, b'1'),
+('1014889', '1014889', 'Hoàng Th? Ái Xuân', 'Expert', 'Hà N?i', 'Hà N?i', 'VN', '0913581073', NULL, 'xuan.hta@nsrp.com.vn', NULL, NULL, NULL, NULL, 'F', '0', NULL, NULL, '1014889', NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -245,15 +244,27 @@ CREATE TABLE `STATIONS` (
 
 CREATE TABLE `SYSVAR` (
   `NAME` char(15) COLLATE utf8_unicode_ci NOT NULL,
-  `TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `TYPE` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
   `VALUE` varchar(120) CHARACTER SET utf8 NOT NULL,
-  `DESCRIPT` varchar(120) CHARACTER SET utf8 NOT NULL,
-  `INPUTMASK` char(12) COLLATE utf8_unicode_ci NOT NULL,
-  `MODIFY` tinyint(4) NOT NULL,
-  `INVALID` char(12) COLLATE utf8_unicode_ci NOT NULL,
-  `DEP_CODE` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `RSR_ID` int(11) NOT NULL
+  `DESCRIPT` varchar(120) CHARACTER SET utf8 DEFAULT NULL,
+  `INPUTMASK` char(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MODIFY` bit(1) DEFAULT NULL,
+  `INVALID` char(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DEP_CODE` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `RSR_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `SYSVAR`
+--
+
+INSERT INTO `SYSVAR` (`NAME`, `TYPE`, `VALUE`, `DESCRIPT`, `INPUTMASK`, `MODIFY`, `INVALID`, `DEP_CODE`, `RSR_ID`) VALUES
+('m_FTPInDir', NULL, '/khanhct/', NULL, NULL, NULL, NULL, NULL, NULL),
+('m_FTPPassword', NULL, 'hanoi', NULL, NULL, NULL, NULL, NULL, NULL),
+('m_FTPPort', NULL, '21', NULL, NULL, NULL, NULL, NULL, NULL),
+('m_FTPServer', NULL, '117.6.130.185', NULL, NULL, NULL, NULL, NULL, NULL),
+('m_FTPUserName', NULL, 'daisy', NULL, NULL, NULL, NULL, NULL, NULL),
+('m_TimeScheduler', NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

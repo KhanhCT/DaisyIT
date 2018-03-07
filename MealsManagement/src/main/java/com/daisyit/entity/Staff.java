@@ -1,4 +1,5 @@
-package com.daisyit.entity;// Generated Mar 6, 2018 1:19:04 AM by Hibernate Tools 4.3.1
+package com.daisyit.entity;
+// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -25,104 +26,61 @@ public class Staff  implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private String staffId;
      private String staffCode;
-     private String type;
-     private String grpId;
-     private String nodeId;
      private String name;
      private String title;
      private String address;
      private String address2;
      private String country;
-     private String plcId;
      private String phone;
      private String fax;
-     private String mobi;
-     private String mobi2;
      private String email;
      private String skype;
      private String facebook;
      private String bankAcc;
-     private String accHolder;
      private String bank;
-     private String bankAddr;
      private String deptId;
-     private String stkId;
-     private String depCode;
-     private String personId;
-     private Date issDate;
      private char sex;
      private Date birthday;
-     private Short userId;
+     private Integer userId;
      private String cardId;
      private String zoneSymb;
      private String mealType;
-     private String contrNum;
-     private Date contrDt;
-     private String regNum;
-     private String contrBr;
-     private Date dueDate;
-     private String remark;
-     private Date openDate;
-     private Date modiDate;
-     private Date lastDate;
      private boolean status;
 
     public Staff() {
     }
 
 	
-    public Staff(String staffId, String name, String deptId, String personId, char sex, String cardId, boolean status) {
+    public Staff(String staffId, String name, String deptId, char sex, String cardId, boolean status) {
         this.staffId = staffId;
         this.name = name;
         this.deptId = deptId;
-        this.personId = personId;
         this.sex = sex;
         this.cardId = cardId;
         this.status = status;
     }
-    public Staff(String staffId, String staffCode, String type, String grpId, String nodeId, String name, String title, String address, String address2, String country, String plcId, String phone, String fax, String mobi, String mobi2, String email, String skype, String facebook, String bankAcc, String accHolder, String bank, String bankAddr, String deptId, String stkId, String depCode, String personId, Date issDate, char sex, Date birthday, Short userId, String cardId, String zoneSymb, String mealType, String contrNum, Date contrDt, String regNum, String contrBr, Date dueDate, String remark, Date openDate, Date modiDate, Date lastDate, boolean status) {
+    public Staff(String staffId, String staffCode, String name, String title, String address, String address2, String country, String phone, String fax, String email, String skype, String facebook, String bankAcc, String bank, String deptId, char sex, Date birthday, Integer userId, String cardId, String zoneSymb, String mealType, boolean status) {
        this.staffId = staffId;
        this.staffCode = staffCode;
-       this.type = type;
-       this.grpId = grpId;
-       this.nodeId = nodeId;
        this.name = name;
        this.title = title;
        this.address = address;
        this.address2 = address2;
        this.country = country;
-       this.plcId = plcId;
        this.phone = phone;
        this.fax = fax;
-       this.mobi = mobi;
-       this.mobi2 = mobi2;
        this.email = email;
        this.skype = skype;
        this.facebook = facebook;
        this.bankAcc = bankAcc;
-       this.accHolder = accHolder;
        this.bank = bank;
-       this.bankAddr = bankAddr;
        this.deptId = deptId;
-       this.stkId = stkId;
-       this.depCode = depCode;
-       this.personId = personId;
-       this.issDate = issDate;
        this.sex = sex;
        this.birthday = birthday;
        this.userId = userId;
        this.cardId = cardId;
        this.zoneSymb = zoneSymb;
        this.mealType = mealType;
-       this.contrNum = contrNum;
-       this.contrDt = contrDt;
-       this.regNum = regNum;
-       this.contrBr = contrBr;
-       this.dueDate = dueDate;
-       this.remark = remark;
-       this.openDate = openDate;
-       this.modiDate = modiDate;
-       this.lastDate = lastDate;
        this.status = status;
     }
    
@@ -146,36 +104,6 @@ public class Staff  implements java.io.Serializable {
     
     public void setStaffCode(String staffCode) {
         this.staffCode = staffCode;
-    }
-
-    
-    @Column(name="TYPE", length=2)
-    public String getType() {
-        return this.type;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    
-    @Column(name="GRP_ID", length=4)
-    public String getGrpId() {
-        return this.grpId;
-    }
-    
-    public void setGrpId(String grpId) {
-        this.grpId = grpId;
-    }
-
-    
-    @Column(name="NODE_ID", length=3)
-    public String getNodeId() {
-        return this.nodeId;
-    }
-    
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
     }
 
     
@@ -229,16 +157,6 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="PLC_ID", length=9)
-    public String getPlcId() {
-        return this.plcId;
-    }
-    
-    public void setPlcId(String plcId) {
-        this.plcId = plcId;
-    }
-
-    
     @Column(name="PHONE", length=50)
     public String getPhone() {
         return this.phone;
@@ -256,26 +174,6 @@ public class Staff  implements java.io.Serializable {
     
     public void setFax(String fax) {
         this.fax = fax;
-    }
-
-    
-    @Column(name="MOBI", length=24)
-    public String getMobi() {
-        return this.mobi;
-    }
-    
-    public void setMobi(String mobi) {
-        this.mobi = mobi;
-    }
-
-    
-    @Column(name="MOBI2", length=24)
-    public String getMobi2() {
-        return this.mobi2;
-    }
-    
-    public void setMobi2(String mobi2) {
-        this.mobi2 = mobi2;
     }
 
     
@@ -319,16 +217,6 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="ACC_HOLDER", length=120)
-    public String getAccHolder() {
-        return this.accHolder;
-    }
-    
-    public void setAccHolder(String accHolder) {
-        this.accHolder = accHolder;
-    }
-
-    
     @Column(name="BANK", length=120)
     public String getBank() {
         return this.bank;
@@ -339,16 +227,6 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="BANK_ADDR", length=120)
-    public String getBankAddr() {
-        return this.bankAddr;
-    }
-    
-    public void setBankAddr(String bankAddr) {
-        this.bankAddr = bankAddr;
-    }
-
-    
     @Column(name="DEPT_ID", nullable=false, length=4)
     public String getDeptId() {
         return this.deptId;
@@ -356,46 +234,6 @@ public class Staff  implements java.io.Serializable {
     
     public void setDeptId(String deptId) {
         this.deptId = deptId;
-    }
-
-    
-    @Column(name="STK_ID", length=12)
-    public String getStkId() {
-        return this.stkId;
-    }
-    
-    public void setStkId(String stkId) {
-        this.stkId = stkId;
-    }
-
-    
-    @Column(name="DEP_CODE", length=2)
-    public String getDepCode() {
-        return this.depCode;
-    }
-    
-    public void setDepCode(String depCode) {
-        this.depCode = depCode;
-    }
-
-    
-    @Column(name="PERSON_ID", nullable=false, length=20)
-    public String getPersonId() {
-        return this.personId;
-    }
-    
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="ISS_DATE", length=19)
-    public Date getIssDate() {
-        return this.issDate;
-    }
-    
-    public void setIssDate(Date issDate) {
-        this.issDate = issDate;
     }
 
     
@@ -419,12 +257,12 @@ public class Staff  implements java.io.Serializable {
     }
 
     
-    @Column(name="USER_ID", precision=3, scale=0)
-    public Short getUserId() {
+    @Column(name="USER_ID")
+    public Integer getUserId() {
         return this.userId;
     }
     
-    public void setUserId(Short userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -456,96 +294,6 @@ public class Staff  implements java.io.Serializable {
     
     public void setMealType(String mealType) {
         this.mealType = mealType;
-    }
-
-    
-    @Column(name="CONTR_NUM", length=25)
-    public String getContrNum() {
-        return this.contrNum;
-    }
-    
-    public void setContrNum(String contrNum) {
-        this.contrNum = contrNum;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="CONTR_DT", length=19)
-    public Date getContrDt() {
-        return this.contrDt;
-    }
-    
-    public void setContrDt(Date contrDt) {
-        this.contrDt = contrDt;
-    }
-
-    
-    @Column(name="REG_NUM", length=25)
-    public String getRegNum() {
-        return this.regNum;
-    }
-    
-    public void setRegNum(String regNum) {
-        this.regNum = regNum;
-    }
-
-    
-    @Column(name="CONTR_BR", length=120)
-    public String getContrBr() {
-        return this.contrBr;
-    }
-    
-    public void setContrBr(String contrBr) {
-        this.contrBr = contrBr;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="DUE_DATE", length=19)
-    public Date getDueDate() {
-        return this.dueDate;
-    }
-    
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    
-    @Column(name="REMARK", length=120)
-    public String getRemark() {
-        return this.remark;
-    }
-    
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="OPEN_DATE", length=19)
-    public Date getOpenDate() {
-        return this.openDate;
-    }
-    
-    public void setOpenDate(Date openDate) {
-        this.openDate = openDate;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="MODI_DATE", length=19)
-    public Date getModiDate() {
-        return this.modiDate;
-    }
-    
-    public void setModiDate(Date modiDate) {
-        this.modiDate = modiDate;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="LAST_DATE", length=19)
-    public Date getLastDate() {
-        return this.lastDate;
-    }
-    
-    public void setLastDate(Date lastDate) {
-        this.lastDate = lastDate;
     }
 
     

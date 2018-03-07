@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 6, 2018 1:19:04 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.daisyit.entity.Staff" table="STAFF" catalog="NSRP_CATER" optimistic-lock="version">
         <id name="staffId" type="string">
@@ -10,15 +10,6 @@
         </id>
         <property name="staffCode" type="string">
             <column name="STAFF_CODE" length="20" />
-        </property>
-        <property name="type" type="string">
-            <column name="TYPE" length="2" />
-        </property>
-        <property name="grpId" type="string">
-            <column name="GRP_ID" length="4" />
-        </property>
-        <property name="nodeId" type="string">
-            <column name="NODE_ID" length="3" />
         </property>
         <property name="name" type="string">
             <column name="NAME" length="50" not-null="true" />
@@ -35,20 +26,11 @@
         <property name="country" type="string">
             <column name="COUNTRY" length="2" />
         </property>
-        <property name="plcId" type="string">
-            <column name="PLC_ID" length="9" />
-        </property>
         <property name="phone" type="string">
             <column name="PHONE" length="50" />
         </property>
         <property name="fax" type="string">
             <column name="FAX" length="24" />
-        </property>
-        <property name="mobi" type="string">
-            <column name="MOBI" length="24" />
-        </property>
-        <property name="mobi2" type="string">
-            <column name="MOBI2" length="24" />
         </property>
         <property name="email" type="string">
             <column name="EMAIL" length="50" />
@@ -62,29 +44,11 @@
         <property name="bankAcc" type="string">
             <column name="BANK_ACC" length="50" />
         </property>
-        <property name="accHolder" type="string">
-            <column name="ACC_HOLDER" length="120" />
-        </property>
         <property name="bank" type="string">
             <column name="BANK" length="120" />
         </property>
-        <property name="bankAddr" type="string">
-            <column name="BANK_ADDR" length="120" />
-        </property>
         <property name="deptId" type="string">
             <column name="DEPT_ID" length="4" not-null="true" />
-        </property>
-        <property name="stkId" type="string">
-            <column name="STK_ID" length="12" />
-        </property>
-        <property name="depCode" type="string">
-            <column name="DEP_CODE" length="2" />
-        </property>
-        <property name="personId" type="string">
-            <column name="PERSON_ID" length="20" not-null="true" />
-        </property>
-        <property name="issDate" type="timestamp">
-            <column name="ISS_DATE" length="19" />
         </property>
         <property name="sex" type="char">
             <column name="SEX" length="1" not-null="true" />
@@ -92,8 +56,8 @@
         <property name="birthday" type="timestamp">
             <column name="BIRTHDAY" length="19" />
         </property>
-        <property name="userId" type="java.lang.Short">
-            <column name="USER_ID" precision="3" scale="0" />
+        <property name="userId" type="java.lang.Integer">
+            <column name="USER_ID" />
         </property>
         <property name="cardId" type="string">
             <column name="CARD_ID" length="12" not-null="true" />
@@ -103,33 +67,6 @@
         </property>
         <property name="mealType" type="string">
             <column name="MEAL_TYPE" length="2" />
-        </property>
-        <property name="contrNum" type="string">
-            <column name="CONTR_NUM" length="25" />
-        </property>
-        <property name="contrDt" type="timestamp">
-            <column name="CONTR_DT" length="19" />
-        </property>
-        <property name="regNum" type="string">
-            <column name="REG_NUM" length="25" />
-        </property>
-        <property name="contrBr" type="string">
-            <column name="CONTR_BR" length="120" />
-        </property>
-        <property name="dueDate" type="timestamp">
-            <column name="DUE_DATE" length="19" />
-        </property>
-        <property name="remark" type="string">
-            <column name="REMARK" length="120" />
-        </property>
-        <property name="openDate" type="timestamp">
-            <column name="OPEN_DATE" length="19" />
-        </property>
-        <property name="modiDate" type="timestamp">
-            <column name="MODI_DATE" length="19" />
-        </property>
-        <property name="lastDate" type="timestamp">
-            <column name="LAST_DATE" length="19" />
         </property>
         <property name="status" type="boolean">
             <column name="STATUS" not-null="true" />

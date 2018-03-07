@@ -1,5 +1,5 @@
 package com.daisyit.entity;
-// Generated Mar 5, 2018 8:54:59 PM by Hibernate Tools 4.3.1
+// Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -22,11 +22,7 @@ import javax.persistence.TemporalType;
 public class Translation  implements java.io.Serializable {
 
 
-     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer translationId;
+     private Integer translationId;
      private String objectClass;
      private String objectProperty;
      private Integer objectId;
