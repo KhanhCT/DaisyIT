@@ -17,7 +17,7 @@
         </style>
     </h:head>
     <h:body style="padding-top: 60px; background-color: #add;">
-        <b:container>
+        <b:container >
             <h:form styleClass="form-signin" prependId="false">
                 <h2 class="form-signin-heading">Please sign in</h2>
                 <b:inputText id="email" placeholder="Email address" >
@@ -31,7 +31,7 @@
                     </f:facet>
                 </b:inputText>
                 <b:selectBooleanCheckbox value="true" caption="Remember me"/>
-                <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg"/>
+                <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="/home.xhtml"/>
             </h:form>
         </b:container>
     </h:body>

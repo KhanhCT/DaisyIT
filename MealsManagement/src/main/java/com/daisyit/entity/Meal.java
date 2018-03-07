@@ -17,7 +17,11 @@ import javax.persistence.Table;
 public class Meal  implements java.io.Serializable {
 
 
-     private String mealId;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String mealId;
      private String mealName;
      private String origin;
      private String description;

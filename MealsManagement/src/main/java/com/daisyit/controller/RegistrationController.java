@@ -89,13 +89,11 @@ public class RegistrationController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		if(hUserDao.isValidUser(user.getStaffId())) {
 			context.addMessage(null, new FacesMessage("User existed"));
-			System.out.println("22222222222222222222222" + user.getFullname());
 		}else
 		{
 			user.setStatus(true);
 			hUserDao.addUser(user);
 			context.addMessage(null, new FacesMessage("Register user successfully!"));
-			System.out.println("11111111111111111111111" + user.getFullname());
 		}
 		context.getExternalContext().getFlash().setKeepMessages(true);
 

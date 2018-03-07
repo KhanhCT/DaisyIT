@@ -1,21 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:b="http://bootsfaces.net/ui"
-		xmlns:p="http://primefaces.org/ui">
-	<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Insert title here</title>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>BootsFaces: next-gen JSF Framework</title>
+	<!-- 	<meta name="author" content="KhanhCT"></meta> -->
+
 </h:head>
-<h:body>
-	<ui:composition template="/template/common.xhtml">
+<h:body style="padding-top: 60px">
+	<ui:composition template="/applayout/mainTemplate.xhtml">
 		<ui:define name="content">
-			<h:form>	
+			<h:form>
 				<p:growl id="msgs" autoUpdate="true" />
-				<p:panelGrid id="grid" columns="3"	cellpadding="5"	style="margin-left: 300px;" >
+				<p:panelGrid id="grid" columns="3" cellpadding="5"
+					style="margin-left: 300px;">
 					<p:outputLabel value="FullName"></p:outputLabel>
 					<p:inputText id="name" style="width:300px "
 						value="#{registrationController.user.fullname}"
@@ -24,14 +26,15 @@
 						<f:validateLength minimum="8" />
 					</p:inputText>
 					<p:message for="name" />
-					
+
 					<p:outputLabel value="Persional Code"></p:outputLabel>
 					<p:inputText id="staff_id" required="true" label="Id"
-						style="width:300px " value="#{registrationController.user.staffId}"
+						style="width:300px "
+						value="#{registrationController.user.staffId}"
 						requiredMessage="Please enter your ID."
 						validatorMessage="Persional Code numbers contain digists only">
 						<f:validateRegex pattern="[0-9]+$" />
-						<f:validateLength minimum="6" maximum="12"/>
+						<f:validateLength minimum="6" maximum="12" />
 					</p:inputText>
 					<p:message for="staff_id"></p:message>
 
@@ -47,7 +50,8 @@
 
 					<p:outputLabel value="Username"></p:outputLabel>
 					<p:inputText id="user_name" size="30" label="userName"
-						style="width:300px " value="#{registrationController.user.username}"
+						style="width:300px "
+						value="#{registrationController.user.username}"
 						requiredMessage="Please enter your username."
 						validatorMessage="Username must be at least 8 characters in length">
 						<f:validateRegex pattern="^[a-zA-Z0-9]+$" />
@@ -57,7 +61,8 @@
 
 					<p:outputLabel value="Password"></p:outputLabel>
 					<p:password id="password" feedback="true" required="true"
-						style="width:300px " value="#{registrationController.user.password}"
+						style="width:300px "
+						value="#{registrationController.user.password}"
 						requiredMessage="Please enter your password" match="re_password"
 						validatorMessage="Password must be at least 8 characters in length">
 						<f:validateLength minimum="6" />
@@ -66,19 +71,21 @@
 
 					<p:outputLabel value="Retype Password"></p:outputLabel>
 					<p:password id="re_password" feedback="true" required="true"
-						style="width:300px " value="#{registrationController.retypePassword}"
+						style="width:300px "
+						value="#{registrationController.retypePassword}"
 						requiredMessage="Please enter your retype password again"
 						validatorMessage="Password does not match the confirm password">
 						<f:validateLength minimum="6" />
 					</p:password>
 					<p:message for="re_password" />
 				</p:panelGrid>
-				
+
 				<p:commandButton ajax="false" value="Register"
 					style="margin-left: 480px;width:150px"
 					actionListener="#{registrationController.register}"></p:commandButton>
 			</h:form>
 		</ui:define>
 	</ui:composition>
+
 </h:body>
 </html>

@@ -16,6 +16,7 @@
 		<ui:define name="content">
 			<h:outputStylesheet library="css" name="table-style.css" />
 			<b:form inline="true" styleClass="info-content">
+
 				<b:container>
 					<b:row>
 						<b:column medium-screen="2">
@@ -48,19 +49,8 @@
 				</b:container>
 			</b:form>
 			<b:form styleClass="form-table" inline="true">
-				<h:panelGrid columns="3" cellpadding="5">
-					<b:inputText label="Name" labelStyle="width:80px;" label-col-lg="5"
-						label-col-sm="5">
-					</b:inputText>
-					<b:inputText label="StaffId" labelStyle="width:80px;"
-						label-col-lg="5" label-col-sm="5">
-					</b:inputText>
-					<b:commandButton value="Add" look="primary" style="width:100%"
-						update="orderForm" action="#{orderController.addClickListener}" />
-				</h:panelGrid>
-				<b:commandButton value="Submit" look="primary" style="width:100%"
-					action="#{orderController.submitClickListener}">
-				</b:commandButton>
+
+
 				<b:dataTable value="#{orderController.orderList}" var="col"
 					styleClass="order-table" headerClass="order-table-header"
 					rowClasses="order-table-odd-row,order-table-even-row"
@@ -76,6 +66,7 @@
 						</h:selectOneMenu>
 					</b:dataTableColumn>
 					<b:dataTableColumn orderable="false" label="Location">
+
 						<h:selectOneMenu value="#{col.location}">
 							<f:selectItems value="#{orderController.localtions}">
 							</f:selectItems>
@@ -99,7 +90,19 @@
 						<h:selectBooleanCheckbox value="#{col.status}" />
 					</b:dataTableColumn>
 				</b:dataTable>
-
+				<h:panelGrid columns="4" cellpadding="5">
+					<b:inputText label="Name" labelStyle="width:80px;" label-col-lg="5"
+						label-col-sm="5">
+					</b:inputText>
+					<b:inputText label="StaffId" labelStyle="width:80px;"
+						label-col-lg="5" label-col-sm="5">
+					</b:inputText>
+					<b:commandButton value="Add" look="primary" style="width:100%"
+						update="orderForm" action="#{orderController.addClickListener}" />
+					<b:commandButton value="Submit" look="primary" style="width:100%"
+						action="#{orderController.submitClickListener}">
+					</b:commandButton>
+				</h:panelGrid>
 			</b:form>
 			<script>
 		    	 $('.checkall').click(function() {
@@ -108,6 +111,6 @@
 		   	</script>
 		</ui:define>
 	</ui:composition>
-	
+
 </h:body>
 </html>

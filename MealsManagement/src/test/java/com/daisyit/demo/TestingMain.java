@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
 
 import com.daisyit.db.hibernate.HibernateCateringDAO;
 import com.daisyit.db.hibernate.HibernateDeptListDAO;
+import com.daisyit.db.hibernate.HibernateMealDAO;
 import com.daisyit.db.hibernate.HibernateStaffDAO;
 import com.daisyit.db.hibernate.HibernateUserDAO;
 import com.daisyit.db.hibernate.HibetnateUtil;
@@ -37,8 +38,10 @@ public class TestingMain {
 		HibernateStaffDAO dao = new HibernateStaffDAO();
 		HibernateCateringDAO cDao = new HibernateCateringDAO();
 		HibernateDeptListDAO dpDAO = new HibernateDeptListDAO();
+		HibernateMealDAO h = new HibernateMealDAO();
 		dpDAO.setSession(sess);
 		cDao.setSession(sess);
+		h.setSession(sess);
 		// HibernateUserDAO uDao = new HibernateUserDAO();
 		dao.setSession(sess);
 		// uDao.setSession(sess);
@@ -54,8 +57,7 @@ public class TestingMain {
 		// System.out.println(date);
 		// cDao.addCatering( new Catering(new CateringId("111111", "LC", date), "HA",
 		// "12", "12", false, "12", true, "12", "12", date, date));
-		// System.out.println("11111111111111111" + dao.getAllStaffs("D001").size());
-		//
+		System.out.println("11111111111111111" + h.getMealId("JAPAN"))	;	//
 		// //dao.deleteStaff(staff);
 		// //dao.addMultiStaffs(staffs);
 		// //
@@ -67,7 +69,7 @@ public class TestingMain {
 		long t = date.getTime();
 		java.sql.Date sqlDate = new java.sql.Date(t);
 
-		System.out.println(cDao.getAllCaterings("AC", Util.getCurrentDate()).size());
+		System.out.println(dpDAO.getDeptListId("IT"));
 		HibetnateUtil.closeSession(sess);
 
 		// File currDir = new File(".");

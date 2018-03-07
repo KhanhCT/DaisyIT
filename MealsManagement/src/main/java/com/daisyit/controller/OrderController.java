@@ -27,6 +27,8 @@ public class OrderController {
 	private List<MealOrder> orderList;
 	private HibernateStaffDAO hStaffDao;
 	private Session session;
+	private HibernateMealDAO hMealDao ;
+
 
 	private List<String> mealTimes;
 
@@ -42,16 +44,16 @@ public class OrderController {
 		mealTimes = new ArrayList<>();
 		localtions = new ArrayList<>();
 		session = HibetnateUtil.openSession();
+		hMealDao = new HibernateMealDAO();
 		hStaffDao = new HibernateStaffDAO();
+		hMealDao.setSession(session);
 		hStaffDao.setSession(session);
 
 		mealTimes.add("Lunch");
 		mealTimes.add("Dinner");
 		mealTimes.add("Supper,Breakfast");
 
-		mealTypes.add("VietNam");
-		mealTypes.add("Japan/Nihon");
-		mealTypes.add("Halah");
+		mealTypes = hMealDao.getMealNames();
 
 		orderList = new ArrayList<>();
 		staffs = hStaffDao.getAllStaffs("F");
@@ -76,11 +78,13 @@ public class OrderController {
 			java.sql.Date date = Util.getCurrentDate();
 			List<Catering> cateringList = new ArrayList<>();
 			HibernateCateringDAO hCateringDao = new HibernateCateringDAO();
+			
 			hCateringDao.setSession(session);
-		      System.out.println("sqlDate=" + date);
+			System.err.println("22222222222222222" + orderList.size());
 			for (MealOrder mealOrder : orderList) {
-				String mealId = "AC";
-				cateringList.add(new Catering(new CateringId(mealOrder.getStaffId(), mealId, date), mealId, "12", "12",
+				String mealId = hMealDao.getMealId(mealOrder.getMealType());
+				mealId = "JP";
+				cateringList.add(new Catering(new CateringId(mealOrder.getStaffId(), mealOrder.getMealTime(), date), mealId, "12", "12",
 						false, "12", mealOrder.getStatus(), "12", "12", date, date));
 			}
 			if (cateringList != null)

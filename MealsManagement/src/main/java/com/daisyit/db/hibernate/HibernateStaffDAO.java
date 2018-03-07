@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import com.daisyit.db.abstraction.DAOException;
 import com.daisyit.db.abstraction.StaffDAO;
 import com.daisyit.entity.Staff;
+import com.daisyit.entity.User;
 import com.daisyit.utils.*;
 
 public class HibernateStaffDAO implements StaffDAO {
@@ -168,6 +169,25 @@ public class HibernateStaffDAO implements StaffDAO {
 			}
 		}
 		return staffName;
+	}
+	@Override
+	public Boolean isValidStaff(String staffId) {
+		Transaction trans = null;
+		String sqlQuery = "FROM Staff WHERE staffId= :staffId";
+		Staff staff = null;
+		try {
+			trans = this.session.beginTransaction();
+			Query query = this.session.createQuery(sqlQuery);
+			query.setString("staffId", staffId);
+			staff = (Staff) query.uniqueResult();
+			trans.commit();
+		} catch (RuntimeException e) {
+			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
+			if (trans != null) {
+				trans.rollback();
+			}
+		}
+		return staff != null ? true : false;
 	}
 
 }
