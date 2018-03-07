@@ -17,7 +17,11 @@ import javax.persistence.Table;
 public class Deptlist  implements java.io.Serializable {
 
 
-     private String deptId;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String deptId;
      private String deptName;
 
     public Deptlist() {

@@ -2,7 +2,7 @@ package com.daisyit.entity;
 // Generated Mar 7, 2018 1:04:56 AM by Hibernate Tools 4.3.1
 
 
-import java.util.Date;
+import java.sql.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -22,7 +22,11 @@ import javax.persistence.TemporalType;
 public class Catering  implements java.io.Serializable {
 
 
-     private CateringId id;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private CateringId id;
      private String mealId;
      private String zoneSymb;
      private String shift;

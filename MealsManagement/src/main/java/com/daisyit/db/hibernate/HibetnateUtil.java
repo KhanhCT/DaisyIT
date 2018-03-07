@@ -15,12 +15,10 @@ public class HibetnateUtil {
 				String workingDir = currDir.getAbsolutePath();
 				workingDir = workingDir.substring(0, workingDir.length()-1);
 				File file = null;
-				System.out.print("woking dir" + workingDir);
 				if (workingDir.contains("\\")) {
 					file = new File(workingDir + "\\hibernate.cfg.xml");
 				}
 				if (workingDir.contains("/")) {
-					System.err.println("11111111111111111" + workingDir);
 					file = new File("/home/khanhct/eclipse-workspace/DaisyIT/MealsManagement" + "/hibernate.cfg.xml");
 				}
 				sessionFactory = new Configuration().configure(file).buildSessionFactory();

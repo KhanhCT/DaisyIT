@@ -1,6 +1,7 @@
 package com.daisyit.db.abstraction;
 import com.daisyit.entity.CateringId;
 
+import  java.sql.Date;
 import java.util.List;
 
 import com.daisyit.entity.Catering;
@@ -10,6 +11,9 @@ public interface CateringDAO {
 	Catering getCatering(CateringId cateringId) throws DAOException;
 	
 	List<Catering> getAllCaterings() throws DAOException;
+	
+	List<Catering> getAllCaterings(String mealTime, Date cateringDate) throws DAOException;
+
 
 	Catering deleteCatering(Catering catering) throws DAOException;
 	

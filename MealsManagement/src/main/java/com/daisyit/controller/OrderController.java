@@ -8,7 +8,14 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.hibernate.Session;
+
+import com.daisyit.db.hibernate.*;
 import com.daisyit.utils.Util;
+import com.daisyit.db.hibernate.HibetnateUtil;
+import com.daisyit.entity.Catering;
+import com.daisyit.entity.CateringId;
+import com.daisyit.entity.Staff;
 
 @ManagedBean(name = "orderController")
 @ViewScoped
@@ -18,6 +25,8 @@ public class OrderController {
 	private String staffName;
 	private String department;
 	private List<MealOrder> orderList;
+	private HibernateStaffDAO hStaffDao;
+	private Session session;
 
 	private List<String> mealTimes;
 
@@ -27,22 +36,58 @@ public class OrderController {
 
 	@PostConstruct
 	public void init() {
+		List<Staff> staffs;
 
 		mealTypes = new ArrayList<>();
 		mealTimes = new ArrayList<>();
 		localtions = new ArrayList<>();
+		session = HibetnateUtil.openSession();
+		hStaffDao = new HibernateStaffDAO();
+		hStaffDao.setSession(session);
 
 		mealTimes.add("Lunch");
 		mealTimes.add("Dinner");
 		mealTimes.add("Supper,Breakfast");
+
 		mealTypes.add("VietNam");
 		mealTypes.add("Japan/Nihon");
 		mealTypes.add("Halah");
-		localtions.add("Ha Noi");
 
 		orderList = new ArrayList<>();
+		staffs = hStaffDao.getAllStaffs("F");
+		for (Staff staff : staffs) {
+			MealOrder mealOrder = new MealOrder();
+			mealOrder.setStaffId(staff.getStaffId());
+			mealOrder.setStaffName(staff.getName());
+			mealOrder.setLocation(staff.getCountry());
+			mealOrder.setStatus(false);
+			orderList.add(mealOrder);
+		}
+		localtions.add("Ha Noi");
+	}
+
+	public void addClickListener() {
 		orderList.add(
 				new MealOrder("1111", "Chu Trong Khanh", "Lunch", "VietNam", Util.getCurrentDate(), "Ha Noi", false));
+	}
+
+	public void submitClickListener() {
+		if (session.isConnected()) {
+			java.sql.Date date = Util.getCurrentDate();
+			List<Catering> cateringList = new ArrayList<>();
+			HibernateCateringDAO hCateringDao = new HibernateCateringDAO();
+			hCateringDao.setSession(session);
+		      System.out.println("sqlDate=" + date);
+			for (MealOrder mealOrder : orderList) {
+				String mealId = "AC";
+				cateringList.add(new Catering(new CateringId(mealOrder.getStaffId(), mealId, date), mealId, "12", "12",
+						false, "12", mealOrder.getStatus(), "12", "12", date, date));
+			}
+			if (cateringList != null)
+				hCateringDao.addMultiCaterings(cateringList);
+			HibetnateUtil.closeSession(session);
+		}
+		
 	}
 
 	public List<String> getLocaltions() {

@@ -49,12 +49,14 @@
 			<b:form styleClass="form-table" inline="true">
 				<b:dataTable value="#{orderController.orderList}" var="col"
 					styleClass="order-table" headerClass="order-table-header"
-					rowClasses="order-table-odd-row,order-table-even-row">
+					rowClasses="order-table-odd-row,order-table-even-row"
+					id="orderForm" excel="true" csv="true" pdf="true"
+					columnVisibility="true" copy="true" print="true">
 					<b:dataTableColumn label="Employee Code" value="#{col.staffId}">
 					</b:dataTableColumn>
 					<b:dataTableColumn label="FullName" value="#{col.staffName}">
 					</b:dataTableColumn>
-					<b:dataTableColumn label="Meal Time" orderable="false">
+					<b:dataTableColumn label="Meal Time" orderable="false" value="">
 						<h:selectOneMenu value="#{col.mealTime}">
 							<f:selectItems value="#{orderController.mealTimes}" />
 							<!-- 
@@ -75,6 +77,7 @@
 						</h:selectOneMenu>
 					</b:dataTableColumn>
 					<b:dataTableColumn label="Meal Type" orderable="false">
+
 						<h:selectOneMenu value="#{col.mealType}">
 							<f:selectItems value="#{orderController.mealTypes}" />
 							<!--  
@@ -92,23 +95,29 @@
 					</b:dataTableColumn>
 				</b:dataTable>
 				<h:panelGrid columns="3" cellpadding="5">
-					<b:inputText label="Name" labelStyle="width:80px;">
+					<b:inputText label="Name" labelStyle="width:80px;" label-col-lg="5" label-col-sm="5">
 					</b:inputText>
-					<b:inputText label="StaffId" labelStyle="width:80px;">
+					<b:inputText label="StaffId" labelStyle="width:80px;" label-col-lg="5" label-col-sm="5">
 					</b:inputText>
-					<b:commandButton value="Add" look="primary" style="width:100%" />
+					<b:commandButton value="Add" look="primary" style="width:100%"
+						update="orderForm" action="#{orderController.addClickListener}" />
 				</h:panelGrid>
+				<br/>
+				<b:commandButton value="Submit" look="success" style="width:100%"
+					action="#{orderController.submitClickListener}" />
+					<!--  
 				<b:container fluid="true"
 					style="position: absolute;bottom: 65px;width: 100%;">
 					<b:row>
 						<b:column span="1" offset="5">
-							<b:commandButton value="Submit" look="success" style="width:100%" />
+
 						</b:column>
 						<b:column span="1">
 							<b:commandButton value="Cancel" look="danger" style="width:100%" />
 						</b:column>
 					</b:row>
 				</b:container>
+				-->
 			</b:form>
 		</ui:define>
 	</ui:composition>

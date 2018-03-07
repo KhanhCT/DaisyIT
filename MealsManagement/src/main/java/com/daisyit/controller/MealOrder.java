@@ -13,6 +13,10 @@ public class MealOrder {
 	private Boolean status;
 	
 
+	public MealOrder()
+	{
+		
+	}
 	
 	public MealOrder(String staffId, String staffName, String mealTime, String mealType, Date cateringDat,
 			String location, Boolean status) {

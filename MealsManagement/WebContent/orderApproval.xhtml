@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>BootsFaces: next-gen JSF Framework</title>
+	<!-- 	<meta name="author" content="KhanhCT"></meta> -->
+	<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
+<h:body style="padding-top: 60px">
+	<ui:composition template="/applayout/mainTemplate.xhtml">
+		<ui:define name="content">
+			<b:form styleClass="form-table" inline="true">
+				<h:panelGrid columns="5" cellpadding="5">
+					<b:selectOneMenu value="#{approvalController.department}"
+						id="departmentID" label="Department">
+						<f:selectItems value="#{approvalController.departments}"
+							style="width:100" />
+					</b:selectOneMenu>
+
+					<b:selectOneMenu value="#{approvalController.mealTime}"
+						id="mealTimeID" label="Meal Time">
+						<f:selectItems value="#{approvalController.mealTimes}"
+							style="width:100" />
+					</b:selectOneMenu>
+
+					<b:dateTimePicker show-date="true" show-time="false"
+						value="#{approvalController.cateringDate}"
+						allow-input-toggle="true" format="DD/MM/YYYY"
+						label="Catering Date"></b:dateTimePicker>
+
+					<b:commandButton value="Filter" look="primary" style="width:100%"
+						action="#{approvalController.onFilterListener}"
+						update="orderListID">
+					</b:commandButton>
+
+					<b:commandButton value="Approve" look="primary" style="width:100%"
+						action="#{approvalController.onApproveListener}">
+					</b:commandButton>
+
+				</h:panelGrid>
+
+				<b:dataTable value="#{approvalController.orderList}" var="col"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row"
+					id="orderListID" excel="true" csv="true" pdf="true"
+					columnVisibility="true" copy="true" print="true">
+					<b:dataTableColumn label="Employee Code" value="#{col.staffId}">
+					</b:dataTableColumn>
+					<b:dataTableColumn label="FullName" value="#{col.staffName}">
+					</b:dataTableColumn>
+					<b:dataTableColumn label="Meal Time" orderable="false"
+						value="#{col.mealTime}">
+					</b:dataTableColumn>
+					<b:dataTableColumn orderable="false" label="Location"
+						value="#{col.location}">
+					</b:dataTableColumn>
+					<b:dataTableColumn label="Meal Type" orderable="false"
+						value="#{col.mealType}">
+					</b:dataTableColumn>
+					<b:dataTableColumn orderable="false">
+						<f:facet name="header">
+							<h:selectBooleanCheckbox class="checkall" label="All" />
+						</f:facet>
+						<h:selectBooleanCheckbox value="#{col.status}" />
+					</b:dataTableColumn>
+				</b:dataTable>
+			</b:form>
+		</ui:define>
+	</ui:composition>
+	<script>
+    	 $('.checkall').click(function() {
+    		 $(this).closest("table").find(':checkbox').prop('checked', $(this).prop('checked'));
+    	 })
+   	</script>
+</h:body>
+</html>

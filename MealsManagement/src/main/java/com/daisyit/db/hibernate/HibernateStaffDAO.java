@@ -1,4 +1,5 @@
 package com.daisyit.db.hibernate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import com.daisyit.db.abstraction.StaffDAO;
 import com.daisyit.entity.Staff;
 import com.daisyit.utils.*;
 
-public class HibernateStaffDAO implements StaffDAO  {
+public class HibernateStaffDAO implements StaffDAO {
 	private Session session;
 	private Log log = new Log(this.getClass().toString());
 
@@ -23,7 +24,7 @@ public class HibernateStaffDAO implements StaffDAO  {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	
+
 	@Override
 	public Staff getStaff(String staffId) throws DAOException {
 		// TODO Auto-generated method stub
@@ -55,14 +56,14 @@ public class HibernateStaffDAO implements StaffDAO  {
 		try {
 			trans = this.session.beginTransaction();
 			Query query = this.session.createQuery(sqlQuery);
-			staffs = query.list();		
+			staffs = query.list();
 			trans.commit();
 		} catch (RuntimeException e) {
 			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
 			if (trans != null) {
 				trans.rollback();
 			}
-		} 
+		}
 		return staffs;
 	}
 
@@ -74,7 +75,7 @@ public class HibernateStaffDAO implements StaffDAO  {
 			trans = this.session.beginTransaction();
 			this.session.delete(staff);
 			trans.commit();
-		}catch (RuntimeException e) {
+		} catch (RuntimeException e) {
 			// TODO: handle exception
 			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
 			if (trans != null) {
@@ -90,9 +91,9 @@ public class HibernateStaffDAO implements StaffDAO  {
 		Transaction trans = null;
 		try {
 			trans = this.session.beginTransaction();
-			this.session.save(staff);
+			this.session.saveOrUpdate(staff);
 			trans.commit();
-		}catch (RuntimeException e) {
+		} catch (RuntimeException e) {
 			// TODO: handle exception
 			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
 			if (trans != null) {
@@ -111,19 +112,42 @@ public class HibernateStaffDAO implements StaffDAO  {
 			for (int i = 0; i < staffs.size(); i++) {
 				this.session.saveOrUpdate(staffs.get(i));
 				if (i % 20 == 0) {
-					//this.session.flush();
-					//this.session.clear();
+					 this.session.flush();
+					 this.session.clear();
 				}
 			}
 			trans.commit();
-		}catch (RuntimeException e) {
+		} catch (RuntimeException e) {
 			// TODO: handle exception
 			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
 			if (trans != null) {
 				trans.rollback();
 			}
 		}
-		return null;		
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Staff> getAllStaffs(String deptId) throws DAOException {
+
+		// TODO Auto-generated method stub
+		Transaction trans = null;
+		List<Staff> staffs = new ArrayList<>();
+		String sqlQuery = "FROM Staff WHERE deptId= :deptId";
+		try {
+			trans = this.session.beginTransaction();
+			Query query = this.session.createQuery(sqlQuery);
+			query.setString("deptId", deptId);
+			staffs = query.list();
+			trans.commit();
+		} catch (RuntimeException e) {
+			log.writeLogError(this.getClass().getMethods().toString(), e.getMessage());
+			if (trans != null) {
+				trans.rollback();
+			}
+		}
+		return staffs;
 	}
 
 }

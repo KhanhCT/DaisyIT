@@ -110,8 +110,8 @@ public class HibernateUserDAO implements UserDAO{
 			for (int i = 0; i < users.size(); i++) {
 				this.session.saveOrUpdate(users.get(i));
 				if (i % 20 == 0) {
-					//this.session.flush();
-					//this.session.clear();
+					this.session.flush();
+					this.session.clear();
 				}
 			}
 			trans.commit();
