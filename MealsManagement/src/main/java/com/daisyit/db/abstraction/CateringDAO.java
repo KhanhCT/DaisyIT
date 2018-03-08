@@ -12,7 +12,7 @@ public interface CateringDAO {
 	
 	List<Catering> getAllCaterings() throws DAOException;
 	
-	List<Catering> getAllCaterings(String mealTime, Date cateringDate) throws DAOException;
+	List<Catering> getAllCaterings(String mealTime, Date cateringDate, Boolean status) throws DAOException;
 
 
 	Catering deleteCatering(Catering catering) throws DAOException;

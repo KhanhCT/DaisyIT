@@ -27,8 +27,7 @@ public class OrderController {
 	private List<MealOrder> orderList;
 	private HibernateStaffDAO hStaffDao;
 	private Session session;
-	private HibernateMealDAO hMealDao ;
-
+	private HibernateMealDAO hMealDao;
 
 	private List<String> mealTimes;
 
@@ -69,8 +68,8 @@ public class OrderController {
 	}
 
 	public void addClickListener() {
-		orderList.add(
-				new MealOrder("1111", "Chu Trong Khanh", "Lunch", "VietNam", Util.getCurrentDate().toString(), "Ha Noi", false));
+		orderList.add(new MealOrder("1111", "Chu Trong Khanh", "Lunch", "VietNam", Util.getCurrentDate().toString(),
+				"Ha Noi", false));
 	}
 
 	public void submitClickListener() {
@@ -78,20 +77,18 @@ public class OrderController {
 			java.sql.Date date = Util.getCurrentDate();
 			List<Catering> cateringList = new ArrayList<>();
 			HibernateCateringDAO hCateringDao = new HibernateCateringDAO();
-			
+
 			hCateringDao.setSession(session);
-			System.err.println("22222222222222222" + orderList.size());
 			for (MealOrder mealOrder : orderList) {
 				String mealId = hMealDao.getMealId(mealOrder.getMealType());
-				mealId = "JP";
-				cateringList.add(new Catering(new CateringId(mealOrder.getStaffId(), mealOrder.getMealTime(), date), mealId, "12", "12",
-						false, "12", mealOrder.getStatus(), "12", "12", date, date));
+				cateringList.add(new Catering(new CateringId(mealOrder.getStaffId(), mealOrder.getMealTime(), date),
+						mealId, "12", "12", false, "12", mealOrder.getStatus(), "12", "12", date, date));
 			}
 			if (cateringList != null)
 				hCateringDao.addMultiCaterings(cateringList);
 			HibetnateUtil.closeSession(session);
 		}
-		
+
 	}
 
 	public List<String> getLocaltions() {

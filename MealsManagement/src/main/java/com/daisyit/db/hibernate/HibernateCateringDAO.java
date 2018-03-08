@@ -85,15 +85,16 @@ public class HibernateCateringDAO implements CateringDAO {
 	}
 
 	@Override
-	public List<Catering> getAllCaterings(String mealTime, Date cateringDate) throws DAOException {
+	public List<Catering> getAllCaterings(String mealTime, Date cateringDate, Boolean status) throws DAOException {
 		Transaction trans = null;
-		String sqlQuery = "FROM Catering c WHERE c.id.caterDate= :cateringDate AND c.id.mealTtme= :mealTime";
+		String sqlQuery = "FROM Catering c WHERE c.id.caterDate= :cateringDate AND c.id.mealTtme= :mealTime AND catered= :catered";
 		List<Catering> cateringList = new ArrayList<Catering>();
 		try {
 			trans = this.session.beginTransaction();
 			Query query = this.session.createQuery(sqlQuery);
 			query.setString("mealTime", mealTime);
 			query.setDate("cateringDate", cateringDate);
+			query.setBoolean("catered", status);
 			cateringList = query.list();
 			trans.commit();
 		} catch (RuntimeException e) {

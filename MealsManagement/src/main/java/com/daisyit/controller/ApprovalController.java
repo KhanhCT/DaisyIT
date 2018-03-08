@@ -6,8 +6,11 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.xml.crypto.dsig.spec.HMACParameterSpec;
 
 import org.hibernate.Session;
 
@@ -22,7 +25,6 @@ import com.daisyit.entity.Staff;
 import com.daisyit.utils.Util;
 
 @ManagedBean(name = "approvalController")
-@ViewScoped
 public class ApprovalController {
 	private List<MealOrder> orderList;
 
@@ -37,14 +39,17 @@ public class ApprovalController {
 	private String mealTime;
 
 	private java.util.Date cateringDate;
+	private HibernateMealDAO hMealDao;
 
 	@PostConstruct
 	public void init() {
 		session = HibetnateUtil.openSession();
 		hStaffDao = new HibernateStaffDAO();
 		hDeptListDAO = new HibernateDeptListDAO();
+		hMealDao = new HibernateMealDAO();
 		hStaffDao.setSession(session);
 		hDeptListDAO.setSession(session);
+		hMealDao.setSession(session);
 
 		orderList = new ArrayList<>();
 		departments = hDeptListDAO.getAllDeptLists();
@@ -59,59 +64,52 @@ public class ApprovalController {
 		if (department != null && mealTime != null && cateringDate != null) {
 			String deptId = hDeptListDAO.getDeptListId(department);
 			HibernateCateringDAO hCateringDao = new HibernateCateringDAO();
-			HibernateMealDAO hMealDao = new HibernateMealDAO();
 			List<Catering> cateringList;
 			String mealType;
 			String staffName;
 			String localtion = "Ha Noi";
 
 			hCateringDao.setSession(session);
-			hMealDao.setSession(session);
 
-			cateringList = hCateringDao.getAllCaterings(mealTime, Util.getCurrentDate());
+			cateringList = hCateringDao.getAllCaterings(mealTime, Util.getCurrentDate(), false);
 			if (cateringList != null) {
 				orderList.clear();
 				for (Catering c : cateringList) {
 					mealType = hMealDao.getMealName(c.getMealId());
 					staffName = hStaffDao.getStaffName(c.getId().getStaffId());
-					orderList.add(new MealOrder(c.getMealId(), staffName, c.getId().getMealTtme(), mealType,
+					orderList.add(new MealOrder(c.getId().getStaffId(), staffName, c.getId().getMealTtme(), mealType,
 							c.getCaterTime(), localtion, false));
-					// orderList.add(new MealOrder(c.getId().getStaffId(), hStaffDao., deptId,
-					// mealType, cateringDat, location, status))
 				}
 
-			}
-			if (deptId != null) {
-
-				// // staffs = hStaffDao.getAllStaffs(deptId);
-				// System.out.println(staffs.size());
-				// for (Staff staff : staffs) {
-				// MealOrder mealOrder = new MealOrder();
-				// mealOrder.setStaffId(staff.getStaffId());
-				// mealOrder.setStaffName(staff.getName());
-				// mealOrder.setLocation(staff.getCountry());
-				// mealOrder.setStatus(false);
-				// orderList.add(mealOrder);
-				// }
 			}
 		}
 	}
 
 	public void onApproveListener() {
+		System.out.println("111111111111111111" + orderList.size());
 
 		if (session.isConnected()) {
-			Date date = Util.getCurrentDate();
 			List<Catering> cateringList = new ArrayList<>();
 			HibernateCateringDAO hCateringDao = new HibernateCateringDAO();
 			hCateringDao.setSession(session);
+
 			for (MealOrder mealOrder : orderList) {
-				String mealId = "AC";
-				cateringList.add(new Catering(new CateringId(mealOrder.getStaffId(), mealId, date), mealId, "12", "12",
-						mealOrder.getStatus(), "12", true, "12", "12", date, date));
+				System.out.println("111111111111111111");
+				System.out.println(mealOrder.getStatus() + mealOrder.getMealType());
+				String mealId = hMealDao.getMealId(mealOrder.getMealType());
+				System.out.println("111111111111111111" + mealOrder.getStaffId() + mealOrder.getMealTime()
+						+ Util.getCurrentDate());
+				cateringList.add(new Catering(
+						new CateringId(mealOrder.getStaffId(), mealOrder.getMealTime(), Util.getCurrentDate()), mealId,
+						"12", "12", mealOrder.getStatus(), "12", true, "12", "12", Util.getCurrentDate(),
+						Util.getCurrentDate()));
 			}
 			if (cateringList != null)
 				hCateringDao.addMultiCaterings(cateringList);
-			// HibetnateUtil.closeSession(session);
+			orderList.clear();
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage("Approve orders successfully!"));
+			context.getExternalContext().getFlash().setKeepMessages(true);
 		}
 	}
 
